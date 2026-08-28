@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reportes, KPIs e Integración — Benchmarking Odoo</title>
+<style>
+  body{
+    font-family: Georgia, 'Times New Roman', serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+    color: #000;
+    line-height: 1.5;
+    border: 1px solid #000;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #000;
+  }
+  .logo{
+    border:2px solid #000;
+    font-weight:bold;
+    font-size:22px;
+    padding: 4px 10px;
+    font-family: Arial, sans-serif;
+  }
+  header .titles{font-family: Arial, sans-serif; font-size: 14px;}
+  header .company{font-weight:bold;}
+  main{padding: 24px 20px 30px;}
+  h1{font-size: 26px; margin: 0 0 14px;}
+  h2{font-size: 19px; margin: 30px 0 6px;}
+  p{margin: 0 0 12px; font-size: 15px;}
+  .intro{font-size:15px; margin-bottom: 20px;}
+  .btn{
+    display:inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border: 1px solid #1a5aa8;
+    color: #1a5aa8;
+    padding: 5px 12px;
+    text-decoration: none;
+    background: #fff;
+    cursor: pointer;
+  }
+  .btn:hover{background:#eef4fb;}
+  table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0 14px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+  table th, table td{
+    border: 1px solid #000;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  table th{background:#f2f2f2;}
+  .detail{
+    display:none;
+    border:1px solid #999;
+    padding: 12px 14px;
+    margin: 10px 0 6px;
+    background:#fafafa;
+    font-size: 14px;
+  }
+  .detail.open{display:block;}
+  ul{margin: 6px 0 12px 20px; font-size: 15px;}
+  footer{
+    border-top: 1px solid #000;
+    padding: 14px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">EC</div>
+  <div class="titles">
+    <span class="company">Embutidos de Calidad S.A.</span> &nbsp; Reportes, KPIs e Integración — Sección 6
+  </div>
+</header>
+
+<main>
+  <h1>Bienvenido al módulo de Reportes, KPIs e Integración</h1>
+  <p class="intro">
+    Este módulo reúne el análisis de benchmarking realizado sobre el embudo de ventas de e-commerce y su
+    prueba en Odoo ERP. Responsable: Jose. Enfoque: métricas clave (DSO, rotación de saldos), dashboards
+    financieros e integración mediante APIs entre e-commerce y ERP. A continuación se describe brevemente
+    cada bloque y cómo se conectan entre sí.
+  </p>
+
+  <h2>1. Captación y Descubrimiento de Producto</h2>
+  <p>Banner de incentivo para descarga de la app móvil con descuento de Q1,000, geolocalización inicial y un menú desplegable masivo optimizado para minimizar clics hacia el producto.</p>
+  <button class="btn" onclick="document.getElementById('d1').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d1">
+    <p><strong>Elementos clave de conversión:</strong> el banner muestra disponibilidad inmediata según la ubicación del usuario.</p>
+    <p><strong>Arquitectura de menú:</strong> el menú desplegable destaca ofertas por departamento antes de que el usuario tenga que buscarlas.</p>
+  </div>
+
+  <h2>2. Generación de Urgencia y Valor en Ficha de Producto (PDP)</h2>
+  <p>Ficha de producto optimizada para conversión y preventa, con disparadores de venta (triggers) que reducen la duda antes de comprar.</p>
+  <button class="btn" onclick="document.getElementById('d2').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d2">
+    <p>Contador regresivo para crear urgencia (FOMO), precio de oferta visible y confirmación de logística de envío o retiro antes de añadir al carrito.</p>
+  </div>
+
+  <h2>3. Recuperación e Incremento del Ticket Promedio</h2>
+  <p>Carrito de compras con venta cruzada, cupones y validación visual de cuotas sin intereses para reducir el abandono.</p>
+  <button class="btn" onclick="document.getElementById('d3').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d3">
+    <p>Módulo de recomendaciones ("Los demás también vieron"), campo de cupones y visualización de cuotas sin intereses al momento de revisar el carrito.</p>
+  </div>
+
+  <h2>4. Embudo de Pago y Reducción de Fricción</h2>
+  <p>Checkout como invitado, validación geográfica de entrega y habilitación de ventas omnicanal.</p>
+  <button class="btn" onclick="document.getElementById('d4').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d4">
+    <ul>
+      <li>Compra como invitado: elimina el registro obligatorio, solo pide tres datos de contacto.</li>
+      <li>Validación geográfica: menús de departamento y municipio para estimar costo y tiempo de envío.</li>
+      <li>Omnicanalidad: "Compra en línea, recoge en tienda" usando la red física del grupo (incluye Tecno Fácil).</li>
+    </ul>
+  </div>
+
+  <h2>5. Flexibilidad de Pago y Cumplimiento Fiscal</h2>
+  <p>Medios de pago alternativos, facturación electrónica local y pasarela segura de tarjeta.</p>
+  <button class="btn" onclick="document.getElementById('d5').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d5">
+    <p>Integración de NIT/DPI/CF para cumplimiento fiscal guatemalteco y canje de programas de lealtad (Puntos MAX, MAXCash, Promerica) como método de pago parcial o total. Cierre de venta con pasarela cifrada para tarjetas locales e internacionales.</p>
+  </div>
+
+  <h2>6. Prueba en ERP (Odoo Demo)</h2>
+  <p>Factura de servicios generada en borrador para el cliente Acme Corporation (Pleasant Hill, CA), condiciones de pago a 30 días.</p>
+  <button class="btn" onclick="document.getElementById('d6').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d6">
+    <table>
+      <tr><th>Servicio</th><th>Horas</th><th>Precio unitario</th><th>Subtotal</th></tr>
+      <tr><td>Instalación de ascensores</td><td>20</td><td>$5,500.00</td><td>$99,000.00</td></tr>
+      <tr><td>Diseño de interiores</td><td>5</td><td>$2,500.00</td><td>$11,250.00</td></tr>
+      <tr><td>Instalación de paneles solares</td><td>4</td><td>$1,050.00</td><td>$13,284.00</td></tr>
+    </table>
+    <p>Impuesto aplicado: 15% (excluido del precio unitario).</p>
+  </div>
+
+  <h2>7. Benchmarking de Reportes de Ventas en Odoo</h2>
+  <p>Comparación entre lo que entrega Odoo por defecto y el estándar de dashboards ejecutivos (Power BI, Tableau).</p>
+  <button class="btn" onclick="document.getElementById('d7').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d7">
+    <p><strong>Figura 1 — Ventas por producto:</strong> el gráfico circular de Odoo satura la vista con más de 30 SKUs, dificultando identificar los ítems clave. El estándar de la industria agrupa "Top 10 + Otros" o usa barras horizontales.</p>
+    <p><strong>Figura 2 — Cantidad pedida acumulada:</strong> la gráfica de líneas de Odoo no aplica el principio de Pareto (80/20). Las herramientas de BI avanzadas usan clasificación ABC para identificar el 20% de productos que genera el 80% del valor.</p>
+  </div>
+
+  <h2>8. Evaluación Comparativa y Métricas Financieras</h2>
+  <p>Tres hallazgos de auditoría sobre la reportería nativa de Odoo frente a un tablero ejecutivo.</p>
+  <button class="btn" onclick="document.getElementById('d8').classList.toggle('open')">Conoce más</button>
+  <div class="detail" id="d8">
+    <ul>
+      <li><strong>Legibilidad gráfica:</strong> Odoo permite exportar a Spreadsheet, pero la vista por defecto genera superposición de etiquetas en el eje X.</li>
+      <li><strong>Sesgo por métrica:</strong> "Cantidad pedida" aísla la venta de la liquidez real; para DSO y rotación de saldos debe usarse "Monto Facturado" en facturas validadas.</li>
+      <li><strong>Optimización operativa:</strong> se recomienda cambiar a barras horizontales descendentes, agrupadas por Categoría de producto en lugar de SKUs individuales.</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  Sección 6 · Reportes, KPIs e Integración — Benchmarking de Ventas y Cuentas por Cobrar · Universidad Mariano Gálvez de Guatemala
+</footer>
+
+</body>
+</html>

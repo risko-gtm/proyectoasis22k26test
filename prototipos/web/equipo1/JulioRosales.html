@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cobranza y Gestión de Cartera (A/R)</title>
+
+    <style>
+
+        body{
+            font-family: Georgia, 'Times New Roman', serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            color: #000;
+            line-height: 1.5;
+            border: 1px solid #000;
+        }
+
+        header{
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 20px;
+            border-bottom: 1px solid #000;
+        }
+
+        .logo{
+            border: 2px solid #000;
+            font-weight: bold;
+            font-size: 22px;
+            padding: 4px 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        header .titles{
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        header .company{
+            font-weight: bold;
+        }
+
+        main{
+            padding: 24px 20px 30px;
+        }
+
+        h1{
+            font-size: 26px;
+            margin: 0 0 14px;
+        }
+
+        h2{
+            font-size: 19px;
+            margin: 30px 0 6px;
+        }
+
+        h3{
+            font-size: 16px;
+            margin: 16px 0 6px;
+        }
+
+        p{
+            margin: 0 0 12px;
+            font-size: 15px;
+        }
+
+        .intro{
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn{
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            border: 1px solid #1a5aa8;
+            color: #1a5aa8;
+            padding: 5px 12px;
+            text-decoration: none;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            background: #eef4fb;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0 14px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        table th,
+        table td{
+            border: 1px solid #000;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        table th{
+            background: #f2f2f2;
+        }
+
+        .detail{
+            display: none;
+            border: 1px solid #999;
+            padding: 12px 14px;
+            margin: 10px 0 6px;
+            background: #fafafa;
+            font-size: 14px;
+        }
+
+        .detail.open{
+            display: block;
+        }
+
+        ul{
+            margin: 6px 0 12px 20px;
+            font-size: 15px;
+        }
+
+        .status{
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 4px 8px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        footer{
+            border-top: 1px solid #000;
+            padding: 14px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #444;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">EC</div>
+
+    <div class="titles">
+        <span class="company">Embutidos de Calidad S.A.</span>
+        &nbsp; Cobranza y Gestión de Cartera (A/R) — Sección 6
+    </div>
+
+</header>
+
+<main>
+
+    <h1>Bienvenido al módulo de Cobranza y Gestión de Cartera (A/R)</h1>
+
+    <p class="intro">
+        Este módulo documenta el proceso de gestión de cuentas por cobrar de
+        Embutidos de Calidad S.A., desde la generación de la factura y el
+        registro de la cuenta por cobrar hasta el seguimiento de saldos,
+        recepción de pagos, actualización del expediente del cliente,
+        generación de reportes e integración con Contabilidad.
+    </p>
+
+    <span class="status">Proceso: Ventas y Cuentas por Cobrar</span>
+
+    <h2>1. Administración de Clientes y Cartera</h2>
+
+    <p>
+        El proceso inicia con la administración de la información de los
+        clientes y sus movimientos, permitiendo mantener actualizados los
+        datos necesarios para gestionar las operaciones comerciales y las
+        cuentas pendientes de cobro.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d1').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d1">
+
+        <p>
+            <strong>Información del cliente:</strong> se deben mantener los
+            datos necesarios para identificar al cliente y consultar su
+            historial de movimientos.
+        </p>
+
+        <p>
+            <strong>Gestión de cartera:</strong> el sistema permite consultar
+            los movimientos asociados al cliente para dar seguimiento a las
+            obligaciones pendientes.
+        </p>
+
+        <p>
+            <strong>Objetivo:</strong> disponer de información actualizada
+            para facilitar el control y recuperación de las cuentas por cobrar.
+        </p>
+
+    </div>
+
+
+    <h2>2. Generación de Pedido y Facturación</h2>
+
+    <p>
+        La gestión de cartera se origina a partir del proceso comercial.
+        Una cotización aprobada se convierte en pedido y posteriormente se
+        genera la factura comercial que da origen a la cuenta por cobrar.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d2').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d2">
+
+        <p>
+            <strong>Cotización:</strong> el vendedor genera una cotización
+            utilizando el listado de precios vigente.
+        </p>
+
+        <p>
+            <strong>Pedido:</strong> cuando la cotización es aprobada,
+            se transforma en un pedido dentro del flujo comercial.
+        </p>
+
+        <p>
+            <strong>Factura:</strong> el pedido genera la factura comercial,
+            estableciendo la obligación de pago del cliente.
+        </p>
+
+        <p>
+            <strong>Resultado:</strong> la operación facturada queda
+            registrada para su posterior seguimiento dentro de las cuentas
+            por cobrar.
+        </p>
+
+    </div>
+
+
+    <h2>3. Registro y Gestión de Cobros</h2>
+
+    <p>
+        El sistema debe permitir registrar los pagos recibidos de los
+        clientes y actualizar la información de su expediente, permitiendo
+        conocer el estado de las obligaciones pendientes y las operaciones
+        ya liquidadas.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d3').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d3">
+
+        <p>
+            <strong>Registro del pago:</strong> el cajero registra el pago
+            recibido en la caja para actualizar el control de cobros.
+        </p>
+
+        <p>
+            <strong>Actualización de cartera:</strong> el movimiento modifica
+            el estado de la cuenta del cliente de acuerdo con el pago
+            registrado.
+        </p>
+
+        <p>
+            <strong>Seguimiento:</strong> la información actualizada permite
+            identificar saldos pendientes y operaciones liquidadas.
+        </p>
+
+    </div>
+
+
+    <h2>4. Control de Cuentas por Cobrar</h2>
+
+    <p>
+        La gestión de cartera requiere mantener un control permanente de
+        los saldos pendientes de los clientes, identificando las obligaciones
+        que permanecen abiertas y facilitando el seguimiento de los
+        vencimientos.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d4').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d4">
+
+        <p>
+            <strong>Saldo pendiente:</strong> permite identificar las cuentas
+            que aún presentan obligaciones de pago.
+        </p>
+
+        <p>
+            <strong>Antigüedad:</strong> la información de las cuentas
+            pendientes se utiliza para clasificar y analizar la antigüedad
+            de los saldos.
+        </p>
+
+        <p>
+            <strong>Gestión de cobranza:</strong> el análisis de la cartera
+            facilita priorizar el seguimiento de los clientes con
+            obligaciones pendientes.
+        </p>
+
+    </div>
+
+
+    <h2>5. Balance de Antigüedad de Saldos</h2>
+
+    <p>
+        El sistema debe generar el reporte de balance de antigüedad de
+        saldos de cuentas por cobrar, proporcionando información para el
+        análisis de la cartera y el seguimiento de las obligaciones
+        pendientes.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d5').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d5">
+
+        <p>
+            <strong>Información del reporte:</strong> presenta los saldos
+            pendientes de los clientes organizados de acuerdo con su
+            antigüedad.
+        </p>
+
+        <p>
+            <strong>Uso administrativo:</strong> permite al área de Ventas
+            y Cuentas por Cobrar analizar el comportamiento de la cartera
+            y apoyar las actividades de recuperación.
+        </p>
+
+        <p>
+            <strong>Indicador relacionado:</strong> el análisis de cartera
+            puede utilizarse para el seguimiento del DSO (Days Sales
+            Outstanding), definido como indicador específico del área
+            comercial.
+        </p>
+
+    </div>
+
+
+    <h2>6. Comisiones de la Fuerza de Ventas</h2>
+
+    <p>
+        Como parte del proceso comercial, el sistema calcula
+        automáticamente las comisiones de los vendedores de acuerdo con
+        las reglas parametrizables y las ventas liquidadas.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d6').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d6">
+
+        <p>
+            <strong>Cálculo automático:</strong> el sistema determina las
+            comisiones utilizando las reglas configuradas.
+        </p>
+
+        <p>
+            <strong>Ventas liquidadas:</strong> el cálculo se relaciona con
+            las ventas que han sido liquidadas de acuerdo con las reglas
+            establecidas.
+        </p>
+
+        <p>
+            <strong>Control:</strong> el cumplimiento en el cálculo y pago
+            de comisiones constituye un indicador específico del área
+            comercial.
+        </p>
+
+    </div>
+
+
+    <h2>7. Integración con Contabilidad</h2>
+
+    <p>
+        Las operaciones de facturación y cobro deben integrarse con el
+        módulo de Contabilidad mediante el envío de las pólizas
+        correspondientes, permitiendo mantener la información financiera
+        actualizada.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d7').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d7">
+
+        <p>
+            <strong>Facturación:</strong> el sistema envía a Contabilidad
+            la póliza correspondiente a las operaciones de facturación.
+        </p>
+
+        <p>
+            <strong>Cobros:</strong> los movimientos registrados durante la
+            gestión de cobros se integran con Contabilidad mediante las
+            pólizas correspondientes.
+        </p>
+
+        <p>
+            <strong>Objetivo:</strong> evitar registros duplicados y
+            mantener consistencia entre la información comercial y
+            financiera.
+        </p>
+
+    </div>
+
+
+    <h2>8. Seguridad y Control de Acceso</h2>
+
+    <p>
+        El acceso a las operaciones de gestión de cartera deberá estar
+        relacionado con los perfiles y permisos asignados a cada usuario,
+        de acuerdo con las responsabilidades que desempeña dentro del
+        proceso.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d8').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d8">
+
+        <p>
+            <strong>Control de usuarios:</strong> las funciones disponibles
+            deberán corresponder al rol asignado al usuario.
+        </p>
+
+        <p>
+            <strong>Autorización:</strong> las operaciones que requieran
+            aprobación deberán ser ejecutadas únicamente por usuarios con
+            los permisos correspondientes.
+        </p>
+
+        <p>
+            <strong>Trazabilidad:</strong> las operaciones relevantes deberán
+            conservar información que permita identificar quién realizó la
+            operación y cuándo fue ejecutada.
+        </p>
+
+    </div>
+
+
+    <h2>9. Consultas y Reportes</h2>
+
+    <p>
+        El módulo debe proporcionar información que facilite el seguimiento
+        de clientes, movimientos, saldos y cuentas pendientes, así como la
+        generación del balance de antigüedad de saldos requerido para la
+        gestión de cuentas por cobrar.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d9').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d9">
+
+        <p>
+            <strong>Consultas:</strong> permiten revisar información de
+            clientes, movimientos y saldos pendientes.
+        </p>
+
+        <p>
+            <strong>Reportes:</strong> permiten presentar información
+            consolidada para el análisis de la cartera.
+        </p>
+
+        <p>
+            <strong>Indicadores:</strong> la información obtenida puede
+            utilizarse para medir el comportamiento de las cuentas por
+            cobrar y el DSO.
+        </p>
+
+    </div>
+
+
+    <h2>10. Flujo General de Cobranza y Gestión de Cartera</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Etapa</th>
+                <th>Actividad</th>
+                <th>Resultado</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>Cotización</td>
+                <td>Oferta comercial registrada</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Pedido</td>
+                <td>Pedido aprobado</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Facturación</td>
+                <td>Cuenta por cobrar generada</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Gestión de cobro</td>
+                <td>Pago registrado</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Actualización de cartera</td>
+                <td>Saldo actualizado</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>Integración contable</td>
+                <td>Póliza enviada a Contabilidad</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>Consulta y reporte</td>
+                <td>Información para seguimiento</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <h2>11. Requerimientos asociados</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Código</th>
+                <th>Requerimiento</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>RF-VEN-01</td>
+                <td>
+                    Mantenimiento de datos de clientes, movimientos de
+                    clientes y listado de precios.
+                </td>
+            </tr>
+
+            <tr>
+                <td>RF-VEN-02</td>
+                <td>
+                    Gestión integrada de cotizaciones, pedidos y facturas.
+                </td>
+            </tr>
+
+            <tr>
+                <td>RF-VEN-03</td>
+                <td>
+                    Control del ingreso de pagos en caja para cobros a
+                    clientes.
+                </td>
+            </tr>
+
+            <tr>
+                <td>RF-VEN-04</td>
+                <td>
+                    Cálculo automático de comisiones de vendedores mediante
+                    reglas parametrizables.
+                </td>
+            </tr>
+
+            <tr>
+                <td>RF-VEN-05</td>
+                <td>
+                    Integración con Contabilidad mediante pólizas de
+                    facturación y cobro.
+                </td>
+            </tr>
+
+            <tr>
+                <td>RF-VEN-06</td>
+                <td>
+                    Generación del reporte de balance de antigüedad de
+                    saldos de cuentas por cobrar.
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <h2>12. Indicadores de Gestión</h2>
+
+    <p>
+        La gestión de cartera deberá proporcionar información que permita
+        dar seguimiento a los indicadores definidos para el área comercial.
+    </p>
+
+    <ul>
+
+        <li>
+            <strong>DSO (Days Sales Outstanding):</strong>
+            indicador utilizado para medir los días de venta pendientes
+            de cobro.
+        </li>
+
+        <li>
+            <strong>Cumplimiento de comisiones:</strong>
+            seguimiento al cálculo y pago de las comisiones de la fuerza
+            de ventas.
+        </li>
+
+        <li>
+            <strong>Antigüedad de saldos:</strong>
+            análisis de las cuentas pendientes de cobro según su
+            antigüedad.
+        </li>
+
+    </ul>
+
+
+    <h2>13. Resultado esperado</h2>
+
+    <p>
+        Al finalizar el proceso, la empresa deberá contar con información
+        actualizada sobre las cuentas por cobrar, pagos registrados,
+        saldos pendientes, antigüedad de cartera y movimientos de clientes,
+        manteniendo la integración correspondiente con Contabilidad.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('d13').classList.toggle('open')">
+        Conoce más
+    </button>
+
+    <div class="detail" id="d13">
+
+        <p>
+            <strong>Resultado operativo:</strong> cartera actualizada y
+            pagos correctamente registrados.
+        </p>
+
+        <p>
+            <strong>Resultado financiero:</strong> operaciones de
+            facturación y cobro integradas mediante las pólizas
+            correspondientes.
+        </p>
+
+        <p>
+            <strong>Resultado de gestión:</strong> información disponible
+            para analizar saldos, antigüedad de cartera y comportamiento
+            de cobro.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    Embutidos de Calidad S.A. —
+    Cobranza y Gestión de Cartera (A/R) —
+    Documento de referencia para la gestión del proceso.
+
+</footer>
+
+
+</body>
+
+</html>
