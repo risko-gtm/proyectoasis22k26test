@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Técnico y de Viabilidad: ZOHO BOOKS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 35px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background-color: #e8f4f8;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Informe Técnico y de Viabilidad: ZOHO BOOKS</h1>
+        <p style="text-align: center; color: #7f8c8d; margin-top: -20px; margin-bottom: 40px;"><strong>Proyecto:</strong> Embutidos de Calidad S.A.</p>
+        
+        <h2>1. Datos generales / identificación</h2>
+        <ul>
+            <li><strong>Nombre del proveedor y producto:</strong> Zoho Corporation / Zoho Books.</li>
+            <li><strong>Tipo de licencias:</strong> Software como Servicio (SaaS), bajo un modelo de suscripción alojado en la nube.</li>
+            <li><strong>Antigüedad de la plataforma:</strong> Zoho Books se lanzó en 2011, respaldado por Zoho Corporation, que opera en el mercado de software desde 1996.</li>
+            <li><strong>Casos de uso similares:</strong> Sus principales alternativas en el mercado de sistemas contables y ERP para PYMES son QuickBooks Online, Xero, Sage Accounting y el ecosistema financiero de Odoo.</li>
+        </ul>
+
+        <h2>2. Funcionalidad (criterio técnico)</h2>
+        <p><strong>Cobertura de requerimientos funcionales del sistema propuesto (Caso Embutidos de Calidad):</strong></p>
+        
+        <h3>Área de Logística y Cadena de Suministro</h3>
+        <ul>
+            <li><strong>RF-LOG-01:</strong> Zoho permite la gestión multialmacén y el registro de transferencias de inventario entre distintas bodegas.</li>
+            <li><strong>RF-LOG-02:</strong> Permite ajustes tras auditorías físicas, pero no tiene un programador de "muestreos", lo cual requiere un desarrollo adicional.</li>
+            <li><strong>RF-LOG-03:</strong> Permite crear paquetes y envíos manuales, pero la asignación de flotas propias requiere integración externa.</li>
+            <li><strong>RF-LOG-04:</strong> Mediante "Reporting Tags", permite ejecutar el cierre de inventarios periódicos y segmentar la rentabilidad por líneas de negocio o marcas.</li>
+            <li><strong>RF-LOG-05:</strong> Centraliza el catálogo de artículos y la configuración de bodegas de manera nativa.</li>
+        </ul>
+
+        <h3>Área de Compras y Cuentas por Pagar</h3>
+        <ul>
+            <li><strong>RF-COM-01 al RF-COM-06:</strong> Cobertura total. Mantiene un módulo completo de proveedores, listas de precios, flujo de órdenes de compra, pagos, generación automática de pólizas y emisión del reporte de antigüedad de saldos.</li>
+        </ul>
+
+        <h3>Área de Ventas y Cuentas por Cobrar</h3>
+        <ul>
+            <li><strong>RF-VEN-01, 02, 03, 05, 06:</strong> Cobertura total para mantener clientes, flujo de cotización a factura, ingreso de cobros, enlace contable y reportes de cuentas por cobrar.</li>
+            <li><strong>RF-VEN-04:</strong> No cuenta con un motor nativo para calcular comisiones complejas parametrizables; se requiere integrar Zoho CRM o usar Zoho Analytics para esta función.</li>
+        </ul>
+
+        <h3>Área de Nóminas y Gestión de Personal</h3>
+        <ul>
+            <li><strong>RF-NOM-01 al RF-NOM-05:</strong> Sin cobertura nativa para la región. Zoho Payroll está limitado a países específicos (EE. UU., India, etc.). El cálculo de percepciones, deducciones, liquidaciones y cierre de planillas requiere el desarrollo de un módulo a la medida o la integración vía API con un software local.</li>
+        </ul>
+
+        <h3>Área de Tesorería y Bancos</h3>
+        <ul>
+            <li><strong>RF-BAN-01, 02, 03, 05:</strong> Cobertura total. Maneja múltiples divisas, conciliación bancaria automatizada (Bank matching), flujos de aprobación jerárquicos y enlace de pólizas.</li>
+            <li><strong>RF-BAN-04:</strong> Cobertura parcial. Permite imprimir cheques, pero sin el módulo de nóminas, los montos deben ingresarse o importarse manualmente.</li>
+        </ul>
+
+        <h3>Área de Contabilidad General y Finanzas</h3>
+        <ul>
+            <li><strong>RF-CON-01, 03, 04, 05:</strong> Cobertura total. Integra pólizas automáticamente, permite formular presupuestos, realizar cierres contables periódicos y generar estados financieros en tiempo real.</li>
+            <li><strong>RF-CON-02:</strong> Cobertura parcial. Permite la administración de activos, pero carece de un motor robusto de depreciación bajo normativas complejas.</li>
+        </ul>
+
+        <h3>Otros aspectos funcionales</h3>
+        <ul>
+            <li><strong>Módulos incluidos vs. módulos que requieren desarrollos especializados:</strong> 
+                <br>- <em>Incluidos:</em> Contabilidad, facturación, proveedores, cuentas por cobrar/pagar, inventario estándar, control de tiempos y bancos.
+                <br>- <em>Especializados:</em> Nóminas latinoamericanas, módulos de manufactura avanzada (MRP) y cálculo de comisiones.
+            </li>
+            <li><strong>Nivel de personalización/configuración permitido:</strong> Alto. Se pueden crear campos personalizados, automatizaciones y scripts avanzados. Para estructurar lógicamente estos flujos de datos antes de programarlos, resulta muy efectivo modelar la arquitectura utilizando diagramas de flujo de datos bajo la metodología de Kendall & Kendall.</li>
+            <li><strong>Compatibilidad con integraciones:</strong> Posee API REST y se integra de forma transparente con el ecosistema Zoho. Además facilita la extracción hacia bases de datos relacionales tradicionales como SQL Server o MySQL.</li>
+        </ul>
+
+        <h2>3. Requisitos técnicos e infraestructura</h2>
+        <ul>
+            <li><strong>Arquitectura:</strong> Es 100% en la nube (Cloud-native). Toda la carga de procesamiento y bases de datos está en los servidores de Zoho, sin depender de infraestructura del cliente.</li>
+            <li><strong>Requisitos de hardware/software:</strong> Solo requiere un navegador web estándar y conexión a internet. Esto elimina la necesidad de desplegar, asegurar y mantener servidores locales físicos o configurar entornos en Ubuntu Server con servicios de red (como Postfix u OpenVPN).</li>
+            <li><strong>Escalabilidad:</strong> Transparente para el cliente, administrada por los Data Centers del proveedor para manejar grandes volúmenes transaccionales.</li>
+            <li><strong>Seguridad:</strong> Cuenta con cifrado AES de 256 bits, TLS para conexiones y autenticación multifactor (MFA).</li>
+            <li><strong>Estándares:</strong> Cumple con normativas ISO/IEC 27001, 27017, 27018, además de certificaciones SOC 2 Type II y RGPD.</li>
+        </ul>
+
+        <h2>4. Factibilidad económica por plataforma</h2>
+        <ul>
+            <li><strong>Costo de licencia o suscripción:</strong> Ofrece planes escalables (generalmente desde $15 a $240+ USD mensuales) según los límites de facturas y usuarios.</li>
+            <li><strong>Costos de implementación y configuración:</strong> Varían significativamente dependiendo de la necesidad de migrar datos históricos o configurar lógicas complejas, requiriendo a menudo consultores o partners (estimado de $500 en adelante como pago único).</li>
+            <li><strong>Costos de capacitación:</strong> El proveedor ofrece cursos gratuitos mediante Zoho Academy.</li>
+            <li><strong>Costos de mantenimiento/soporte anual:</strong> Incluidos en el costo de la licencia mensual/anual.</li>
+            <li><strong>Costos ocultos:</strong> Principalmente el cobro por añadir usuarios adicionales que superen el límite del plan y las comisiones bancarias o de pasarelas de pago por cada cobro procesado.</li>
+        </ul>
+
+        <h2>5. Soporte y proveedor</h2>
+        <ul>
+            <li><strong>SLA (Service Level Agreement):</strong> Zoho asegura un tiempo de actividad (uptime) del 99.9%.</li>
+            <li><strong>Canales de soporte:</strong> Ofrecen soporte 24/5 (lunes a viernes) a través de chat, correo electrónico y asistencia telefónica para cuentas de pago.</li>
+            <li><strong>Documentación disponible:</strong> Amplia base de conocimientos, tutoriales, foros y documentación robusta para desarrolladores (API).</li>
+            <li><strong>Comunidad activa:</strong> Existe un foro de usuarios muy participativo y una red global certificada de "Zoho Partners" que brindan soluciones a medida.</li>
+        </ul>
+
+        <h2>6. Usabilidad y experiencia de usuario</h2>
+        <ul>
+            <li><strong>Curva de aprendizaje:</strong> Moderada-Baja. El diseño es intuitivo y amigable para perfiles que no son contadores técnicos.</li>
+            <li><strong>Interfaz:</strong> Enfocada en tableros de control (dashboards) modernos y visuales.</li>
+            <li><strong>Dispositivos en los que se encuentra:</strong> Web (Chrome, Safari, etc.), aplicaciones de escritorio (Windows/macOS) y aplicaciones móviles completas (iOS y Android).</li>
+        </ul>
+
+        <h2>7. Riesgos</h2>
+        <ul>
+            <li><strong>Continuidad del proveedor:</strong> Zoho es una corporación rentable y autogestionada (bootstrapped) con casi 30 años en la industria tecnológica. El riesgo de cese de operaciones es extremadamente bajo.</li>
+            <li><strong>¿Genera dependencia?:</strong> Sí, incurre en un nivel alto de <em>Vendor Lock-in</em>. El sistema contable se convierte en el núcleo de la empresa; si en el futuro se desea cambiar de ERP, será necesario extraer la totalidad de los datos en formatos planos y enfrentar un arduo proceso de estructuración, normalización y migración hacia las nuevas tablas relacionales del sistema de destino.</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Financiero - Embutidos de Calidad S.A.</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px dashed #4CAF50;
+        }
+        h1 {
+            color: #d9534f;
+            text-align: center;
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: #2e6da4;
+            border-bottom: 2px solid #2e6da4;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        h3 {
+            color: #333;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            line-height: 1.5;
+        }
+        .student-info {
+            background-color: #fff3cd;
+            border: 1px solid #ffeba0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Caso de Estudio: Embutidos de Calidad S.A.</h1>
+    <div class="student-info">
+        <strong>Asignación de Donald Osorio:</strong> Costos de Capacitación del Personal y Beneficios Tangibles.
+    </div>
+
+    <h2>1. Identificación de Costos</h2>
+    <h3>Costos de Capacitación del Personal</h3>
+    <ul>
+        <li>
+            <strong>Capacitación técnica especializada para operarios:</strong> Programas de formación dirigidos al personal de planta orientados a que aprendan a operar, programar y supervisar de manera eficiente los nuevos equipos automatizados de porcionado, embutido continuo y empaque al vacío de alta velocidad, reduciendo la curva de aprendizaje tecnológica y el temor al desplazamiento laboral.
+        </li>
+        <li>
+            <strong>Formación en metodologías para la eliminación de mermas:</strong> Talleres prácticos enfocados en dotar al personal operativo de herramientas analíticas y operativas para identificar y eliminar los desperdicios de materia prima en la línea de producción, alineándose con las metas de eficiencia operativa.
+        </li>
+        <li>
+            <strong>Programas de liderazgo empático para mandos medios:</strong> Capacitaciones enfocadas en el desarrollo de habilidades blandas y directivas para los mandos medios, fomentando la empatía, la gestión adecuada de equipos y el mantenimiento de canales de comunicación bidireccionales transparentes entre la dirección y los colaboradores.
+        </li>
+        <li>
+            <strong>Costos logísticos y operativos de la formación:</strong> Inversión asociada al pago de instructores externos o especializados, diseño y reproducción de material didáctico, habilitación de espacios de capacitación y la compensación por las horas en que los colaboradores de las distintas áreas (incluyendo los 185 colaboradores de operaciones y planta) se ausenten temporalmente de sus puestos de trabajo regulares.
+        </li>
+    </ul>
+
+    <h2>2. Identificación de Beneficios</h2>
+    <h3>Beneficios Tangibles</h3>
+    <ul>
+        <li>
+            <strong>Reducción directa de costos operativos de manufactura:</strong> Disminución proyectada del costo operativo por tonelada producida en un 12% a través de la automatización de procesos de manufactura, optimización del uso de maquinaria e integración de sensores en los equipos críticos para evitar paros no programados.
+        </li>
+        <li>
+            <strong>Disminución de errores y mermas de materia prima:</strong> Impacto económico positivo derivado de la reducción del margen de error y del desperdicio en un 15%, optimizando el aprovechamiento de los insumos y la materia prima en las líneas de embutidos.
+        </li>
+        <li>
+            <strong>Aumento en la facturación y volumen de ventas:</strong> Incremento del 30% en el volumen de ventas y de las exportaciones hacia países centroamericanos en un plazo de 3 años, impulsado por la apertura de nuevos canales de distribución y la obtención de certificaciones de inocuidad alimentaria (FSSC 22000, BRCGS, IFS).
+        </li>
+        <li>
+            <strong>Ahorro por retención de talento y clima laboral:</strong> Reducción de los costos financieros asociados a los procesos de reclutamiento, contratación y inducción de nuevo personal al alcanzar una tasa de retención del talento superior al 90% y un índice de satisfacción interna superior a 85 puntos.
+        </li>
+    </ul>
+
+    <div class="footer">
+        Universidad Mariano Gálvez de Guatemala - Curso de Gestión / Caso Embutidos de Calidad S.A.
+    </div>
+</div>
+
+</body>
+</html>

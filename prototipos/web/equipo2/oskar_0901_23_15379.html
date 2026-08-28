@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costos y Beneficios del Desarrollo y Migración — Oskar Cermeño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101b2c;
+    --ink-2:#182740;
+    --paper:#f1ecdc;
+    --paper-2:#e8e1cd;
+    --gold:#b98f2b;
+    --debe:#9c4a3c;
+    --debe-soft:#f4e2dd;
+    --haber:#4f7358;
+    --haber-soft:#e3ebde;
+    --line:#c9c0a6;
+    --muted:#5c6579;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+  }
+  a{color:inherit;}
+
+  /* ===== COVER ===== */
+  .cover{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--paper);
+    padding:6vh 6vw;
+    position:relative;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(185,143,43,0.08), transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(185,143,43,0.06), transparent 45%),
+      var(--ink);
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(241,236,220,0.035) 0px, rgba(241,236,220,0.035) 1px, transparent 1px, transparent 32px);
+    pointer-events:none;
+  }
+  .seal{
+    width:76px;height:76px;
+    border:1.5px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:28px;
+    position:relative;
+  }
+  .seal::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(185,143,43,0.5);
+    border-radius:50%;
+  }
+  .seal span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--gold);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 18px;
+  }
+  .cover h1{
+    font-size:clamp(2.2rem, 5.5vw, 4.1rem);
+    line-height:1.06;
+    margin:0 0 20px;
+    max-width:15ch;
+    font-style:italic;
+    font-weight:500;
+  }
+  .cover .sub{
+    color:rgba(241,236,220,0.65);
+    max-width:46ch;
+    font-size:1.02rem;
+    line-height:1.6;
+    margin:0 0 46px;
+  }
+  .cover-meta{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0;
+    border-top:1px solid rgba(241,236,220,0.18);
+    padding-top:26px;
+    max-width:640px;
+    width:100%;
+  }
+  .cover-meta div{
+    flex:1 1 33%;
+    padding:0 18px;
+    border-left:1px solid rgba(241,236,220,0.14);
+  }
+  .cover-meta div:first-child{border-left:none;}
+  .cover-meta .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(241,236,220,0.42);
+    margin-bottom:6px;
+  }
+  .cover-meta .v{
+    font-size:0.95rem;
+    color:var(--paper);
+    font-weight:500;
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:34px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(241,236,220,0.4);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .scroll-hint .bar{
+    width:1px;height:34px;
+    background:linear-gradient(var(--gold), transparent);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:.3;}
+    50%{opacity:1;}
+  }
+
+  /* ===== INTRO ===== */
+  .intro{
+    background:var(--paper);
+    padding:14vh 8vw 12vh;
+  }
+  .intro-inner{
+    max-width:880px;
+    margin:0 auto;
+  }
+  .intro .index{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--debe);
+    margin-bottom:14px;
+  }
+  .intro h2{
+    font-size:clamp(1.6rem,3vw,2.3rem);
+    margin:0 0 22px;
+    font-weight:500;
+    max-width:20ch;
+  }
+  .intro p{
+    font-size:1.05rem;
+    line-height:1.75;
+    color:#33394a;
+    max-width:66ch;
+    margin:0 0 16px;
+  }
+
+  /* ===== LEDGER SECTIONS ===== */
+  .ledger-section{
+    background:var(--ink-2);
+    padding:10vh 6vw 4vh;
+  }
+  .ledger-head{
+    max-width:1100px;
+    margin:0 auto 5vh;
+    color:var(--paper);
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+    border-bottom:1px solid rgba(241,236,220,0.15);
+    padding-bottom:26px;
+  }
+  .ledger-head .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:0.18em;
+    margin-bottom:10px;
+    display:block;
+  }
+  .ledger-head h2{
+    font-size:clamp(1.7rem,3.4vw,2.6rem);
+    margin:0;
+    font-weight:500;
+    max-width:18ch;
+  }
+  .ledger-head p{
+    color:rgba(241,236,220,0.6);
+    max-width:32ch;
+    font-size:0.95rem;
+    line-height:1.6;
+    margin:0;
+  }
+
+  .spread{
+    max-width:1100px;
+    margin:0 auto 3vh;
+    background:var(--paper);
+    border-radius:2px;
+    position:relative;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,0.55);
+  }
+  .spread-label{
+    display:flex;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .spread-label > div{
+    flex:1;
+    padding:16px 28px;
+  }
+  .spread-label .debe-l{
+    color:var(--debe);
+    background:var(--debe-soft);
+    border-radius:2px 0 0 0;
+  }
+  .spread-label .haber-l{
+    color:var(--haber);
+    background:var(--haber-soft);
+    border-radius:0 2px 0 0;
+    text-align:right;
+  }
+  .columns{
+    display:flex;
+    position:relative;
+  }
+  .columns::after{
+    content:"";
+    position:absolute;
+    left:50%;top:0;bottom:0;
+    width:0;
+    border-left:2px dashed var(--line);
+  }
+  .col{
+    flex:1;
+    padding:34px 30px 40px;
+    min-width:0;
+  }
+  .col.haber{border-left:none;}
+
+  .item{
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .col.debe .tag{color:var(--debe);}
+  .col.haber .tag{color:var(--haber);}
+  .item h3{
+    font-size:1.03rem;
+    font-weight:500;
+    margin:0 0 6px;
+    color:#181d29;
+  }
+  .item p{
+    font-size:0.9rem;
+    line-height:1.58;
+    color:#565e70;
+    margin:0;
+  }
+
+  .benefit-group{
+    margin-bottom:6px;
+  }
+  .benefit-group + .benefit-group{
+    margin-top:8px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .benefit-group .group-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#8b7a3a;
+    margin-bottom:14px;
+  }
+
+  .balance-strip{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    background:var(--ink);
+    border-radius:0 0 2px 2px;
+  }
+  .balance-strip > div{
+    flex:1;
+    padding:16px 28px 28px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:rgba(241,236,220,0.45);
+    letter-spacing:0.04em;
+    line-height:1.6;
+  }
+  .balance-strip .debe-b{border-right:1px dashed rgba(241,236,220,0.15);}
+  .balance-strip strong{color:var(--paper);}
+
+  @media (max-width: 760px){
+    .columns{flex-direction:column;}
+    .columns::after{display:none;}
+    .col.haber{border-top:2px dashed var(--line);}
+    .spread-label{flex-direction:column;}
+    .spread-label .haber-l{text-align:left;}
+    .balance-strip{flex-direction:column;}
+    .balance-strip .debe-b{border-right:none;border-bottom:1px dashed rgba(241,236,220,0.15);}
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:var(--paper);
+    padding:12vh 8vw 8vh;
+  }
+  .closing-inner{
+    max-width:760px;
+    margin:0 auto;
+    text-align:left;
+  }
+  .closing .index{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .closing h2{
+    font-size:clamp(1.5rem,3vw,2.1rem);
+    font-weight:500;
+    margin:0 0 20px;
+    max-width:22ch;
+  }
+  .closing p{
+    font-size:1.02rem;
+    line-height:1.75;
+    color:#33394a;
+    margin:0 0 16px;
+  }
+
+  footer{
+    background:var(--ink);
+    color:rgba(241,236,220,0.45);
+    text-align:center;
+    padding:44px 6vw;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+  }
+  footer .line{
+    width:36px;height:1px;
+    background:var(--gold);
+    margin:0 auto 18px;
+  }
+  footer strong{color:var(--paper);}
+
+  /* ===== GLASS NAV (navigation layer only — never over content) ===== */
+  .glass-topbar{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:80;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:14px 6vw;
+    background:rgba(16,27,44,0.46);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    backdrop-filter:blur(20px) saturate(160%);
+    border-bottom:1px solid rgba(241,236,220,0.12);
+    box-shadow:0 1px 0 rgba(241,236,220,0.04), 0 18px 40px -24px rgba(0,0,0,0.6);
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .glass-topbar.is-visible{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .glass-topbar .brand{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:rgba(241,236,220,0.55);
+    white-space:nowrap;
+  }
+  .glass-topbar .brand strong{color:var(--paper);font-weight:500;}
+  .glass-nav-links{
+    display:flex;
+    gap:2px;
+    /* capsule shape: radius = half the control height */
+    border-radius:999px;
+    padding:3px;
+    background:rgba(241,236,220,0.06);
+    border:1px solid rgba(241,236,220,0.08);
+  }
+  .glass-nav-links a{
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(241,236,220,0.55);
+    padding:8px 14px;
+    border-radius:999px;
+    transition:color .2s ease, background-color .2s ease;
+  }
+  /* tint only the primary / active action — not every link */
+  .glass-nav-links a.is-active{
+    color:var(--ink);
+    background:var(--gold);
+  }
+  .glass-nav-links a:not(.is-active):hover{
+    color:var(--paper);
+    background:rgba(241,236,220,0.08);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .glass-topbar{transition:opacity .01s linear;transform:none;}
+  }
+  @media (prefers-contrast: more){
+    .glass-topbar{
+      background:var(--ink);
+      -webkit-backdrop-filter:none;
+      backdrop-filter:none;
+      border-bottom:1px solid var(--paper);
+    }
+  }
+  @media (max-width:640px){
+    .glass-topbar .brand{display:none;}
+    .glass-topbar{justify-content:center;padding:10px 4vw;}
+  }
+</style>
+</head>
+<body>
+
+  <header class="glass-topbar" id="glassNav">
+    <span class="brand"><strong>Cermeño</strong></span>
+    <nav class="glass-nav-links">
+      <a href="#inicio" data-target="inicio">Inicio</a>
+      <a href="#desarrollo" data-target="desarrollo">Desarrollo</a>
+      <a href="#migracion" data-target="migracion">Migración</a>
+      <a href="#cierre" data-target="cierre">Cierre</a>
+    </nav>
+  </header>
+
+
+  <!-- COVER -->
+  <section class="cover" id="inicio">
+    <p class="eyebrow">Universidad Mariano Gálvez · Análisis de Sistemas II</p>
+    <h1 class="display">Costos y beneficios del desarrollo y la migración de un sistema de información</h1>
+    <p class="sub">Serie III A — Caso de Análisis. Lo que cuesta construir un sistema y de lo que devuelve a cambio.</p>
+    <div class="cover-meta">
+      <div>
+        <div class="k">Estudiante</div>
+        <div class="v">Oskar Cermeño</div>
+      </div>
+      <div>
+        <div class="k">Carné</div>
+        <div class="v">0901-23-15379</div>
+      </div>
+      <div>
+        <div class="k">Catedrático</div>
+        <div class="v">Ing. Esduardo del Águila</div>
+      </div>
+      <div>
+        <div class="k">Lugar y fecha</div>
+        <div class="v">Guatemala, agosto 2026</div>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="bar"></div>Desplázate</div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-inner">
+      <p class="index">Introducción</p>
+      <h2 class="display">Dos cuentas, un mismo proyecto</h2>
+      <p>Todo sistema de información se justifica comparando dos columnas: lo que cuesta construirlo y lo que produce una vez en marcha. Este caso de análisis organiza esa comparación como un libro mayor contable — <strong>debe</strong> a la izquierda, <strong>haber</strong> a la derecha — aplicado a dos momentos distintos del mismo proyecto: el desarrollo del sistema y la migración de los datos que ya existían antes de él.</p>
+      <p>En cada tramo se identifican los rubros que generan gasto, los factores que los hacen crecer o encogerse, y los beneficios —tangibles e intangibles— que solo aparecen si ese gasto se ejecuta bien.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1: DESARROLLO -->
+  <section class="ledger-section" id="desarrollo">
+    <div class="ledger-head">
+      <div>
+        <span class="num">01 / Folio de desarrollo</span>
+        <h2 class="display">Costos de desarrollo</h2>
+      </div>
+      <p>Recursos humanos, materiales y de tiempo destinados a construir el sistema, del análisis a las pruebas finales.</p>
+    </div>
+
+    <div class="spread">
+      <div class="spread-label">
+        <div class="debe-l">Debe — costos</div>
+        <div class="haber-l">Haber — beneficios</div>
+      </div>
+      <div class="columns">
+        <div class="col debe">
+          <div class="item">
+            <div class="tag">Análisis</div>
+            <h3>Levantamiento de requerimientos</h3>
+            <p>Entrevistas con usuarios, documentación de procesos actuales y definición del alcance. Horas-hombre de analistas de sistemas y de negocio.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Diseño</div>
+            <h3>Arquitectura, base de datos y UX/UI</h3>
+            <p>Diseño de la arquitectura del sistema, de la base de datos, de la interfaz y de los mecanismos de seguridad. Horas-hombre de arquitectos y diseñadores, más herramientas de modelado.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Programación</div>
+            <h3>Codificación e integración</h3>
+            <p>Trabajo de los desarrolladores, entornos de desarrollo (IDE), licencias de frameworks o lenguajes propietarios, e integración con otros sistemas mediante interfaces y APIs.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Pruebas</div>
+            <h3>Verificación y retrabajo</h3>
+            <p>Pruebas unitarias, de integración, funcionales, de carga y de aceptación de usuario (UAT), además del retrabajo por corrección de errores detectados.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Factores adicionales</div>
+            <h3>Lo que mueve el monto final</h3>
+            <p>La complejidad funcional, la metodología (ágil o tradicional), la decisión de desarrollo interno frente a subcontratación, y los cambios de alcance (scope creep) durante el proyecto.</p>
+          </div>
+        </div>
+        <div class="col haber">
+          <div class="benefit-group">
+            <div class="group-title">Tangibles</div>
+            <div class="item">
+              <div class="tag">Operación</div>
+              <h3>Reducción de costos operativos</h3>
+              <p>Automatización de procesos antes manuales o soportados por sistemas obsoletos.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Calidad</div>
+              <h3>Menos errores operativos</h3>
+              <p>Validaciones y controles incorporados en el diseño, con el consecuente ahorro en corregirlos.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Personal</div>
+              <h3>Ahorro de horas-hombre</h3>
+              <p>Menos tiempo dedicado a tareas repetitivas que el nuevo sistema automatiza.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Ingresos</div>
+              <h3>Aumento de ventas o ingresos</h3>
+              <p>Cuando el sistema habilita nuevos canales de atención, mejores tiempos de respuesta o nuevos servicios.</p>
+            </div>
+          </div>
+          <div class="benefit-group">
+            <div class="group-title">Intangibles</div>
+            <div class="item">
+              <div class="tag">Imagen</div>
+              <h3>Mejora de la imagen corporativa</h3>
+              <p>Contar con un sistema moderno, propio y adaptado a las necesidades reales de la organización.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Cliente</div>
+              <h3>Mayor satisfacción del cliente</h3>
+              <p>Procesos más ágiles y atención más precisa y oportuna.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Gerencia</div>
+              <h3>Mejor toma de decisiones</h3>
+              <p>Un sistema bien diseñado entrega información más confiable, completa y oportuna.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Estrategia</div>
+              <h3>Ventaja competitiva</h3>
+              <p>Disponer de una herramienta tecnológica ajustada a la estrategia del negocio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="balance-strip">
+      <div class="debe-b">Folio 01 · Debe — el gasto se concentra en horas-hombre especializadas: analistas, arquitectos, desarrolladores.</div>
+      <div>Folio 01 · Haber — el retorno se reparte entre ahorro directo y ventajas que no siempre caben en una hoja de cálculo.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MIGRACION -->
+  <section class="ledger-section" id="migracion">
+    <div class="ledger-head">
+      <div>
+        <span class="num">02 / Folio de migración</span>
+        <h2 class="display">Costos de conversión de datos / migración</h2>
+      </div>
+      <p>Recursos requeridos para trasladar la información existente hacia la estructura y el formato del nuevo sistema.</p>
+    </div>
+
+    <div class="spread">
+      <div class="spread-label">
+        <div class="debe-l">Debe — costos</div>
+        <div class="haber-l">Haber — beneficios</div>
+      </div>
+      <div class="columns">
+        <div class="col debe">
+          <div class="item">
+            <div class="tag">Extracción</div>
+            <h3>Recuperación de los datos de origen</h3>
+            <p>De bases de datos antiguas, hojas de cálculo o sistemas heredados.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Depuración</div>
+            <h3>Limpieza de datos (data cleansing)</h3>
+            <p>Identificación y corrección de duplicados, datos incompletos, inconsistentes o desactualizados.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Transformación</div>
+            <h3>Mapeo al nuevo modelo</h3>
+            <p>Adaptación de catálogos, códigos y unidades de medida al sistema destino.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Carga</div>
+            <h3>Importación al nuevo sistema</h3>
+            <p>Ingreso de la información ya depurada y transformada.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Validación</div>
+            <h3>Conciliación y pruebas de cuadre</h3>
+            <p>Verificación de que los datos migrados coincidan en cantidad y calidad con los de origen.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Herramientas</div>
+            <h3>ETL y respaldo</h3>
+            <p>Licencias o desarrollo de scripts de extracción, transformación y carga, más copias de seguridad previas a la migración definitiva.</p>
+          </div>
+          <div class="item">
+            <div class="tag">Factores adicionales</div>
+            <h3>Lo que complica la migración</h3>
+            <p>Volumen de datos, número de fuentes, calidad de la información existente y la necesidad de migrar sin detener la operación (migración en caliente).</p>
+          </div>
+        </div>
+        <div class="col haber">
+          <div class="benefit-group">
+            <div class="group-title">Tangibles</div>
+            <div class="item">
+              <div class="tag">Operación</div>
+              <h3>Reducción de costos operativos</h3>
+              <p>Se elimina el mantenimiento de sistemas o archivos paralelos una vez migrada la información.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Calidad</div>
+              <h3>Menos errores por duplicidad</h3>
+              <p>La migración obliga a depurar y estandarizar la información histórica.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Personal</div>
+              <h3>Ahorro de horas-hombre</h3>
+              <p>Ya no es necesario buscar o conciliar datos manualmente entre sistemas o archivos dispersos.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Ingresos</div>
+              <h3>Aumento de ventas o ingresos</h3>
+              <p>Información histórica confiable permite identificar oportunidades comerciales, como hábitos de compra de clientes migrados correctamente.</p>
+            </div>
+          </div>
+          <div class="benefit-group">
+            <div class="group-title">Intangibles</div>
+            <div class="item">
+              <div class="tag">Imagen</div>
+              <h3>Continuidad de servicio</h3>
+              <p>Los clientes no pierden su historial durante ni después de la migración.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Cliente</div>
+              <h3>Mayor satisfacción del cliente</h3>
+              <p>Su información histórica —compras, cuentas, contratos— permanece disponible y correcta.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Gerencia</div>
+              <h3>Mejor toma de decisiones</h3>
+              <p>Una migración bien ejecutada garantiza reportes basados en datos íntegros desde el primer día.</p>
+            </div>
+            <div class="item">
+              <div class="tag">Estrategia</div>
+              <h3>Ventaja competitiva</h3>
+              <p>Menor tiempo de transición entre sistemas, evitando interrupciones que un competidor podría aprovechar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="balance-strip">
+      <div class="debe-b">Folio 02 · Debe — el gasto depende del estado de los datos heredados, no solo del sistema nuevo.</div>
+      <div>Folio 02 · Haber — mucho del beneficio es evitar perder lo que la organización ya sabía de sus clientes.</div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" id="cierre">
+    <div class="closing-inner">
+      <p class="index">Cierre</p>
+      <h2 class="display">Cuadrar el libro</h2>
+      <p>Leídas juntas, ambas cuentas muestran que el desarrollo y la migración no son gastos aislados, sino inversiones que se pagan con automatización, menos errores, horas-hombre liberadas e ingresos nuevos por un lado —y con una imagen corporativa más sólida, clientes más satisfechos y mejores decisiones gerenciales por el otro. Por eso conviene evaluar ambos proyectos en función de los objetivos que persiguen, y no solamente del monto de la inversión que exigen.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="line"></div>
+    <strong>Oskar Cermeño</strong> · Carné 0901-23-15379<br>
+    Análisis de Sistemas II · Ing. Esduardo del Águila · Universidad Mariano Gálvez, Guatemala, agosto 2026
+  </footer>
+
+  <script>
+    (function(){
+      var nav = document.getElementById('glassNav');
+      var links = Array.prototype.slice.call(document.querySelectorAll('.glass-nav-links a'));
+      var sections = links
+        .map(function(a){ return document.getElementById(a.dataset.target); })
+        .filter(Boolean);
+
+      // Show the glass bar only once we've scrolled past the cover —
+      // it's a navigation aid, not decoration, so it shouldn't float over empty space.
+      function toggleBar(){
+        var pastCover = window.scrollY > window.innerHeight * 0.6;
+        nav.classList.toggle('is-visible', pastCover);
+      }
+      window.addEventListener('scroll', toggleBar, { passive: true });
+      toggleBar();
+
+      // Highlight whichever section is currently in view.
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            links.forEach(function(a){
+              a.classList.toggle('is-active', a.dataset.target === entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+
+      sections.forEach(function(s){ observer.observe(s); });
+    })();
+  </script>
+
+</body>
+</html>
