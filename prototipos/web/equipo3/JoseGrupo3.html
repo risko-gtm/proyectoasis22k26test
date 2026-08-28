@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Benchmarking del Módulo ERP de Compras y Cuentas por Pagar</title>
+</head>
+<body>
+
+<!-- Carátula -->
+
+<p>
+Universidad Mariano Gálvez<br>
+Facultad de Ingeniería, Matemáticas y Ciencias Físicas<br>
+Catedrático: Ing. Esduardo del Aguila<br>
+Día: 28 de agosto de 2026<br>
+Carrera: Ingeniería en Sistemas de la Información y Ciencias de la Computación.<br>
+Sistema: Sistemas Empresariales — Terminus, S.A.<br>
+Rama asignada: Módulo ERP de Compras y Cuentas por Pagar
+</p>
+
+<br><br><br><br><br><br><br><br>
+
+<h1 align="center">Benchmarking del Módulo ERP de Compras y Cuentas por Pagar</h1>
+
+<h2 align="center"><em>Sistema ERP «Embutidos de Calidad, S.A.»</em></h2>
+
+<br><br><br><br><br><br><br><br>
+
+<p align="center">
+José Pablo Cano Cóbar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0901-23-1727<br>
+Guatemala, 28 de agosto del 2026
+</p>
+
+<hr>
+
+<!-- 1.Introducción -->
+
+<h2>1. Introducción</h2>
+
+<p>El presente documento contiene el estudio de benchmarking elaborado como
+actividad preparatoria al desarrollo del Módulo de Compras y Cuentas por Pagar del
+sistema de planificación de recursos empresariales (ERP) que se construye para la
+empresa «Embutidos de Calidad, S.A.», dentro del proyecto integrador del curso de
+Análisis de Sistemas II.</p>
+
+<p>El benchmarking se entiende, siguiendo la formulación clásica de Camp
+(1989), como el proceso continuo y sistemático de comparación de los productos,
+servicios y procesos de trabajo propios frente a los de aquellas organizaciones
+reconocidas como líderes, con el propósito de identificar brechas de desempeño y
+adaptar las mejores prácticas al contexto propio. Conviene subrayar que la finalidad
+del método no es la reproducción literal de la solución ajena, sino la comprensión de
+las razones que explican su superioridad y su posterior adaptación con valor
+agregado.</p>
+
+<p>La aplicación de esta técnica resulta particularmente pertinente en el caso que
+ocupa a este estudio. El área de Compras y Cuentas por Pagar administra la relación
+comercial con los proveedores y supervisa los compromisos financieros derivados del
+aprovisionamiento; en consecuencia, sus procesos se encuentran suficientemente
+normalizados en la industria del software empresarial como para admitir una
+comparación significativa con productos comerciales consolidados. Analizar cómo
+resuelven estas necesidades los fabricantes líderes permite anticipar decisiones de
+diseño, reducir el riesgo de omitir funcionalidades críticas y fundamentar
+técnicamente las propuestas que se presenten ante la coordinación del proyecto.</p>
+
+<p>El documento identifica seis sistemas de referencia, analiza sus capacidades en
+materia de aprovisionamiento y cuentas por pagar, las contrasta contra los
+requerimientos formalmente establecidos para el módulo y concluye con un conjunto de
+prácticas cuya adopción se recomienda.</p>
+
+<hr>
+
+<!-- 2. Alcance -->
+
+<h2>2. Alcance</h2>
+
+<h3>2.1 Alcance incluido</h3>
+
+<p>El estudio se circunscribe al Módulo de Compras y Cuentas por Pagar y comprende
+exclusivamente los procesos descritos en el flujo de trabajo del caso: consulta de
+precios y movimientos de proveedores, emisión de órdenes de compra, recepción e
+ingreso de mercancía, programación y control de pagos, generación de pólizas
+contables automáticas y emisión del balance de antigüedad de saldos.</p>
+
+<p>La comparación se realiza sobre seis sistemas: SAP S/4HANA, Oracle NetSuite,
+Microsoft Dynamics 365 Business Central, Odoo, Softland ERP y CSB-System. El análisis
+se limita al plano funcional; es decir, examina qué hace cada sistema y
+<em>cómo</em> lo presenta al usuario.</p>
+
+<h3>2.2 Delimitaciones</h3>
+
+<p>Se declaran expresamente fuera del alcance del presente estudio los siguientes
+aspectos:</p>
+
+<ul>
+  <li><strong>Los demás módulos del sistema.</strong> Logística, Ventas y Cuentas por
+  Cobrar, Bancos, Contabilidad y Recursos Humanos se mencionan únicamente cuando
+  existe una dependencia directa con el módulo analizado.</li>
+
+  <li><strong>La evaluación económica.</strong> No se analizan precios de
+  licenciamiento, costos de implementación ni retorno de la inversión, por no ser
+  pertinentes a un proyecto académico.</li>
+
+  <li><strong>La arquitectura interna de los referentes.</strong> No se examinan
+  modelos de datos propietarios, estructuras de base de datos ni código fuente, salvo
+  en el caso de Odoo, cuya condición de programa de código abierto permite la
+  inspección directa.</li>
+
+  <li><strong>La selección de un proveedor.</strong> El estudio no persigue recomendar
+  la adquisición de ningún producto comercial, sino extraer criterios de diseño para
+  un desarrollo propio.</li>
+</ul>
+
+<hr>
+
+<!-- 3. Metodología -->
+
+<h2>3. Metodología</h2>
+
+<h3>3.1 Tipo de benchmarking aplicado</h3>
+
+<p>Se emplearon de manera combinada dos de las tipologías reconocidas en la
+literatura:</p>
+
+<ul>
+  <li><strong>Benchmarking competitivo:</strong> aplicado a SAP S/4HANA, Oracle
+  NetSuite, Microsoft Dynamics 365 Business Central, Odoo y Softland ERP, por tratarse
+  de productos que compiten en el mismo segmento funcional que el sistema en
+  desarrollo.</li>
+
+  <li><strong>Benchmarking funcional:</strong> aplicado a CSB-System, seleccionado no
+  por su posición de mercado sino por su especialización exclusiva en la industria
+  cárnica, lo que lo convierte en referente sectorial aun cuando no compita
+  directamente con los anteriores.</li>
+</ul>
+
+<h3>3.2 Fases del estudio</h3>
+
+<p>El trabajo se estructuró conforme a las cinco fases del proceso de
+benchmarking:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>N.º</th>
+    <th>Fase</th>
+    <th>Actividades ejecutadas</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><strong>Planificación</strong></td>
+    <td>Delimitación del objeto de comparación (procesos de compras y cuentas por
+    pagar), definición de los criterios derivados de los requerimientos RF-COM y
+    RNF-COM, y establecimiento de los perfiles de referente a buscar.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><strong>Recolección de datos</strong></td>
+    <td>Consulta de documentación técnica oficial de los fabricantes, portales de
+    producto, centros de ayuda y demostraciones interactivas de acceso público.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>Análisis</strong></td>
+    <td>Mapeo de cada capacidad documentada contra el requerimiento correspondiente y
+    determinación de las brechas entre lo previsto y el estado del arte.</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td><strong>Acción</strong></td>
+    <td>Formulación de las prácticas susceptibles de adopción, adaptadas al contexto de
+    una empresa de 250 colaboradores del sector de embutidos.</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td><strong>Seguimiento</strong></td>
+    <td>Identificación de los puntos que deben revisarse con la coordinación del
+    proyecto y que requerirán una segunda medición durante el desarrollo.</td>
+  </tr>
+</table>
+
+<h3>3.3 Criterios de selección de los referentes</h3>
+
+<p>La conformación de la muestra respondió a cuatro criterios explícitos, aplicados de
+forma complementaria a fin de evitar el sesgo que produciría comparar únicamente
+contra productos de gran escala:</p>
+
+<ul>
+  <li><strong>Liderazgo de mercado</strong> en soluciones ERP para manufactura
+  (SAP S/4HANA).</li>
+
+  <li><strong>Disponibilidad de documentación técnica pública</strong> que permita
+  verificar las afirmaciones sin necesidad de licencia (Oracle NetSuite, Microsoft
+  Dynamics 365 Business Central).</li>
+
+  <li><strong>Posibilidad de inspección directa</strong> del producto por parte del
+  equipo estudiantil (Odoo, de código abierto).</li>
+
+  <li><strong>Pertinencia contextual</strong>, entendida como cercanía a la realidad
+  regional guatemalteca (Softland ERP) o especialización en la industria cárnica
+  (CSB-System).</li>
+</ul>
+
+<h3>3.4 Criterios de comparación</h3>
+
+<p>Los criterios de contraste no se definieron de manera arbitraria, sino que se
+derivaron directamente de los requerimientos formalmente establecidos para el módulo
+en el documento de requerimientos generales del caso de estudio. Estos criterios se
+detallan en la sección 5 y constituyen las columnas de la matriz comparativa
+presentada en la sección 7.</p>
+
+<h3>3.5 Fuentes de información y limitaciones</h3>
+
+<p>La recolección se apoyó exclusivamente en fuentes documentales de acceso público:
+centros de documentación oficial de los fabricantes, páginas de producto y
+simulaciones interactivas. No se realizaron entrevistas, ni se tuvo acceso a
+instalaciones productivas de ninguno de los sistemas analizados.</p>
+
+<p><strong>Limitación metodológica.</strong> El nivel de detalle disponible no es
+homogéneo entre los seis referentes. Oracle NetSuite y Microsoft Dynamics 365 Business
+Central publican documentación técnica exhaustiva y de libre acceso, mientras que
+Softland ERP y CSB-System difunden principalmente material comercial. En consecuencia,
+la ausencia de una funcionalidad en la matriz comparativa debe interpretarse como
+<em>no documentada en las fuentes consultadas</em> y no como evidencia de su
+inexistencia en el producto.</p>
+
+</body>
+</html>
