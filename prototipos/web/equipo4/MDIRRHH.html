@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Recursos Humanos - Embutidos de Calidad S.A.</title>
+<style>
+  body{
+    margin:20px;
+    border:2px solid #000;
+    padding:25px 30px;
+    font-family:"Times New Roman", Times, serif;
+    color:#000;
+  }
+  a{ color:#1155CC; }
+  .btn{
+    display:inline-block;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    text-decoration:none;
+    border:1px solid #1155CC;
+    padding:5px 12px;
+    margin:0 0 14px;
+  }
+  h1{ font-size:28px; margin:25px 0 10px; }
+  h2{ font-size:20px; margin:22px 0 8px; }
+  h3{ font-size:16px; margin:16px 0 4px; font-weight:bold; }
+  p{ font-size:15px; line-height:1.5; margin:6px 0 14px; max-width:900px; }
+  .logo-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  .logo{
+    font-family:Arial, sans-serif;
+    font-weight:bold;
+    font-size:34px;
+    color:#1F3B33;
+    border:3px solid #1F3B33;
+    padding:4px 10px;
+  }
+  .subtitle{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    color:#000;
+  }
+  hr{ margin:20px 0; }
+</style>
+</head>
+<body>
+
+  <div class="logo-row">
+    <span class="logo">EC</span>
+    <span class="subtitle">Embutidos de Calidad S.A. &nbsp;&nbsp; Sistema de Gestion de Recursos Humanos</span>
+  </div>
+
+  <h1>Bienvenido al sistema de Recursos Humanos</h1>
+
+  <p>
+    Este sistema reune en un solo lugar los procesos de Recursos Humanos de
+    Embutidos de Calidad S.A.: reclutamiento, gestion de empleados, nomina,
+    permisos y vacaciones, y seguridad. A continuacion se describe brevemente
+    cada modulo y como se conectan entre si.
+  </p>
+
+  <h2>Reclutamiento</h2>
+  <p>
+    Permite publicar vacantes, dar seguimiento a los candidatos por etapa de
+    entrevista y consultar analiticas de seleccion antes de decidir a quien
+    contratar.
+  </p>
+  <a class="btn" href="reclutamientoRRHH.html">Conoce mas</a>
+
+  <h2>Gestion de Empleados</h2>
+  <p>
+    Contiene el expediente de cada colaborador: datos generales, historial
+    salarial, beneficiarios y capacitaciones recibidas.
+  </p>
+  <a class="btn" href="Odoo.html">Conoce mas</a>
+
+  <h2>Nomina</h2>
+  <p>
+    Calcula la planilla completa conforme a la legislacion guatemalteca
+    (IGSS, ISR, Bono 14, aguinaldo y bonificacion incentivo) e integra el
+    deposito directo con los bancos locales.
+  </p>
+  <a class="btn" href="nominas.html">Conoce mas</a>
+
+  <h2>Permisos, Vacaciones y Asistencia</h2>
+  <p>
+    Registra entradas y salidas, permite aprobar solicitudes de vacaciones y
+    lleva el control de incapacidades y permisos del personal.
+  </p>
+  <a class="btn" href="permisos_vacaciones_asistencia.html">Conoce mas</a>
+
+  <h2>Seguridad y Accesos</h2>
+  <p>
+    Define que puede ver y hacer cada usuario segun su rol, protege la
+    informacion sensible del personal y mantiene un registro de los
+    movimientos realizados en el sistema.
+  </p>
+  <a class="btn" href="Testseguridad.html">Conoce mas</a>
+
+  <h3>Contactanos</h3>
+
+  <hr>
+
+  <h2>Como se conectan los modulos</h2>
+  <p>
+    Un candidato aceptado en Reclutamiento abre automaticamente su expediente
+    en Gestion de Empleados. Ese expediente es la fuente de datos que usa
+    Nomina para calcular percepciones y deducciones. Las ausencias y permisos
+    aprobados se reflejan en la misma planilla. Seguridad decide, en cada uno
+    de los modulos anteriores, quien tiene permiso de ver o modificar la
+    informacion.
+  </p>
+
+  <h3>Saludos</h3>
+
+  <p>
+    El equipo de Recursos Humanos (Equipo 4) es el encargado del desarrollo
+    de este modulo del proyecto.
+  </p>
+
+</body>
+</html>

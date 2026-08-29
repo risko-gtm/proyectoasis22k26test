@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Recursos Humanos - Embutidos de Calidad S.A.</title>
+<style>
+  body{
+    margin:20px;
+    border:2px solid #000;
+    padding:25px 30px;
+    font-family:"Times New Roman", Times, serif;
+    color:#000;
+  }
+  a{ color:#1155CC; }
+  .btn{
+    display:inline-block;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    text-decoration:none;
+    border:1px solid #1155CC;
+    padding:5px 12px;
+    margin:0 0 14px;
+  }
+  h1{ font-size:28px; margin:25px 0 10px; }
+  h2{ font-size:20px; margin:22px 0 8px; }
+  h3{ font-size:16px; margin:16px 0 4px; font-weight:bold;}
+  p{ font-size:15px; line-height:1.5; margin:6px 0 14px; max-width:900px; }
+  .logo-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  .logo{
+    font-family:Arial, sans-serif;
+    font-weight:bold;
+    font-size:34px;
+    color:#1F3B33;
+    border:3px solid #1F3B33;
+    padding:4px 10px;
+  }
+  .subtitle{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    color:#000;
+  }
+  hr{ margin:20px 0; }
+</style>
+</head>
+<body>
+
+  <div class="logo-row">
+    <span class="logo">EC</span>
+    <span class="subtitle">Embutidos de Calidad S.A. &nbsp;&nbsp; Sistema de Gestion de Recursos Humanos</span>
+  </div>
+
+  <h1>Bienvenido a la vista de Odoo</h1>
+
+  <p>
+    Odo Employees es una aplicación de gestión de Recursos Humanos del ERP Odoo. 
+    Permite organizar los registros, contratos y departamentos de los empleados de una empresa, integrándose de forma 
+    nativa con el resto de aplicaciones del sistema de Odoo que se dirige hacia: Nominas, Ausencias Reclutamiento, Gastos, Evaluaciones, Contabilidad, etc.
+  </p>
+
+  <h2>Panel general de empleados  </h2>
+  <p>
+La vista de la aplicación organiza a los empleados en tarjetas agrupadas por departamento, mostrando foto, cargo y datos de contacto rápido. 
+Permite clasificar a los trabajadores por horas de trabajo, cargo, obteniendo así una visión completa del equipo antes de entrar al detalle de cada departamento. 
+Este tipo de vista es buena propuesta ya que facilita al usuario ubicar rápidamente a cualquier colaborador sin necesidad de navegar por menús adicionales. 
+  </p>
+<p>
+  El diseño de la interfaz es intuitivo, con una distribución bien organizada que facilita la vista. 
+  En la barra lateral izquierda, se encuentran las principales secciones de cada departamento y en la parte superior el menú del sistema lo que permite un acceso rápido a las funcionalidades clave. 
+  Esta es una buena propuesta que se puede implementar en nuestro proyecto pues mantendrá en constante actualización el área de Recursos Humanos de la empresa, para que tomen en cuenta aspectos clave en base a esos datos.
+</p>
+
+  <h2>Gestión de gastos de empleados</h2>
+  <p>
+    Esta interfaz permite a cada colaborador reportar y solicitar el reembolso de sus gastos laborales de forma estructurada. 
+    Cada línea de gasto incluye la fecha, la categoría por ejemplo: viáticos y transporte, alimentos o gastos generales, una descripción, el cliente al que puede reinvoicarse el gasto, el porcentaje de impuestos aplicado y el subtotal correspondiente. 
+    Al final, el sistema calcula automáticamente el monto sin impuestos, el total de impuestos y el total general a reembolsar.
+    Incorporar esta metodología en nuestro proyecto permitirá una mejor organización de los pagos y retribuciones. 
+
+  </p>
+
+
+  <h2>Ausencias y control de asistencia </h2>
+  <p>
+    El módulo relacionado de Ausencias (Time Off) permite registrar vacaciones, incapacidades y permisos con flujo de aprobación entre empleado y supervisor, además de vistas de calendario y Gantt para planificar al equipo. 
+    El estado de cada solicitud (pendiente, aprobada, rechazada) permite llevar un control claro, algo que podríamos replicar en nuestro sistema para evitar seguimientos manuales por correo o WhatsApp
+  </p>
+  <h3>¿Qué podemos utilizar de esta metodología en nuestro proyecto? </h3>
+  <p>Los aspectos más importantes a tomar en cuenta son: la ficha centralizada del empleado, ya que evita la dispersión de información en distintos archivos el sistema de permisos de acceso restringido, que protege datos sensibles del personal y la gestión de habilidades, que le da un valor estratégico adicional al simple registro administrativo. 
+    La vista Kanban por departamento también es un patrón de diseño que facilita mucho la navegación y que consideramos replicable en nuestra interfaz.
+  </p>
+
+  <h2>Seguimiento del estado de los puestos</h2>
+  <p>
+    Esta interfaz responde a una necesidad muy concreta del área de RRHH y saber en qué estado se encuentra cada puesto de trabajo sin tener que darle seguimiento manual uno por uno. 
+    El sistema centraliza todas las vacantes en un solo tablero, organizadas por departamento y cada tarjeta muestra de forma inmediata cuántas postulaciones nuevas ha recibido el puesto y cuántas personas faltan por contratar.
+  </p>
+  
+
+  <h2>Ausencias y control de asistencia </h2>
+  <p>
+    Esta interfaz gestiona el proceso de evaluación de desempeño de cada colaborador. Muestra la ficha de evaluación de un empleado específico, indicando su gerente responsable, la fecha de evaluación, el departamento y la empresa a la que pertenece.
+    La pantalla se divide en dos columnas: Employee's Feedback, donde el propio colaborador responde preguntas de autoevaluación y Manager's Feedback, donde el jefe directo registra su retroalimentación y califica al empleado en criterios concretos como resistencia al estrés, manejo del tiempo, trabajo en equipo y autonomía, mediante un sistema de calificación.
+
+  </p>
+
+
+  <h2>Visualización de flujo de trabajo  </h2>
+  <p>
+    Vista general del trabajo realizado por cada trabajador para las estadísticas mas especificar dar clic en una tarjeta, Arrastra sus tarjetas para cambiar la etapa en la que se encuentran o haz que se muevan en automático luego de realizar ciertas actividades.
+  </p>
+
+  <h2>Reportes</h2>
+  <p>
+    Crea tablas dinámicas con tus datos. Visualiza todas tus estadísticas conoce los canales que traen más postulantes, el progreso del flujo de trabajo y la forma en la que el equipo se encarga de gestionar todo. 
+    Estos reportes incluyen información sobre las tácticas de reclutamiento para ayudarte a optimizar los procesos de contratación.
+  </p>
+
+  <h2>Reembolso o Refactura</h2>
+  <p>
+    Indica quién debe pagar, si el cliente o alguno de los integrantes de tu equipo. Especifica si es necesario reembolsar los gastos a algún empleado o facturarlo al cliente. 
+    Las órdenes de venta se actualizan en automático una vez que los gastos se vuelven a facturar y se aprueban. 
+    Los empleados reciben su reembolso con solo un par de clics sin tener que ir a la aplicación Contabilidad.
+  </p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permisos, Vacaciones y Asistencia - Sistema de Recursos Humanos - Embutidos de Calidad S.A.</title>
+<style>
+  body{
+    margin:20px;
+    border:2px solid #000;
+    padding:25px 30px;
+    font-family:"Times New Roman", Times, serif;
+    color:#000;
+  }
+  a{ color:#1155CC; }
+  h1{ font-size:28px; margin:25px 0 10px; }
+  h2{ font-size:20px; margin:22px 0 8px; }
+  h3{ font-size:16px; margin:16px 0 4px; font-weight:bold; }
+  p{ font-size:15px; line-height:1.5; margin:6px 0 14px; max-width:900px; }
+  ul{ font-size:15px; line-height:1.5; max-width:900px; margin:6px 0 14px; }
+  .logo-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  .logo{
+    font-family:Arial, sans-serif;
+    font-weight:bold;
+    font-size:34px;
+    color:#1F3B33;
+    border:3px solid #1F3B33;
+    padding:4px 10px;
+  }
+  .subtitle{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    color:#000;
+  }
+  hr{ margin:20px 0; }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    max-width:900px;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    margin:10px 0 20px;
+  }
+  th, td{
+    border:1px solid #000;
+    padding:6px 8px;
+    text-align:left;
+  }
+  th{
+    background:#1F3B33;
+    color:#fff;
+  }
+</style>
+</head>
+<body>
+
+  <div class="logo-row">
+    <span class="logo">EC</span>
+    <span class="subtitle">Embutidos de Calidad S.A. &nbsp;&nbsp; Sistema de Gestion de Recursos Humanos</span>
+  </div>
+
+  <h1>Modulo de Permisos, Vacaciones y Asistencia</h1>
+
+  <p>
+    El modulo de Permisos, Vacaciones y Asistencia reune en un solo lugar
+    el registro de entradas y salidas del personal, la solicitud y
+    aprobacion de vacaciones, y el control de permisos e incapacidades. Su
+    proposito es sustituir el seguimiento manual que actualmente se realiza
+    mediante hojas de asistencia impresas, mensajes por WhatsApp o correos
+    sueltos entre el colaborador y su jefe directo, y reemplazarlo por un
+    unico registro digital que sea consultable en cualquier momento tanto
+    por el empleado como por su supervisor y por el area de Recursos
+    Humanos. Al centralizar esta informacion se reduce el riesgo de que una
+    ausencia quede sin registrar, de que un permiso se apruebe de palabra
+    pero nunca se documente, o de que existan diferencias entre lo que el
+    colaborador recuerda haber solicitado y lo que finalmente se toma en
+    cuenta al calcular su nomina. Este modulo se diseño tomando como
+    referencia las funcionalidades de asistencia y ausencias identificadas
+    en el benchmarking realizado sobre Factorial, Odoo Employees, Nomiplex
+    y Aspel NOI, considerando de cada uno los elementos que mejor se
+    adaptan a la operacion de Embutidos de Calidad S.A., tanto para
+    personal administrativo como para el personal operativo de planta.
+  </p>
+
+  <h2>Registro de asistencia</h2>
+  <p>
+    Esta seccion permite registrar de forma individual la hora de entrada y
+    salida de cada colaborador, comparando las horas efectivamente
+    trabajadas frente a las horas planificadas segun su horario asignado.
+    El sistema calcula de manera automatica el balance de cada persona,
+    identifica cuando existen horas extra y detalla el fichaje dia por dia
+    a lo largo del mes, de manera que tanto el colaborador como su
+    supervisor puedan revisar en cualquier momento el detalle de su jornada
+    sin depender de reportes elaborados manualmente al cierre del periodo.
+    Desde la vista de administrador, este mismo modulo permite revisar y
+    aprobar las horas registradas por cada persona, identificar rapidamente
+    quienes tienen horas extra pendientes de autorizacion y detectar
+    balances que aun no han sido resueltos antes de que la informacion pase
+    al calculo de nomina. Para el personal operativo de planta, el registro
+    de asistencia se disena pensando en marcas de turno por estacion de
+    trabajo, de forma que se pueda controlar de manera diferenciada al
+    personal administrativo de oficina y a los operarios que laboran en
+    turnos dentro de las lineas de produccion, incluyendo el calculo de
+    horas extra generadas directamente en planta.
+  </p>
+
+  <h2>Permisos e incapacidades</h2>
+  <p>
+    El modulo permite que cualquier colaborador solicite un permiso o
+    reporte una incapacidad medica directamente desde el sistema,
+    indicando el tipo de ausencia, la fecha de inicio y finalizacion, y un
+    breve motivo o comentario si aplica. Cada solicitud pasa por un flujo
+    de aprobacion en el que el supervisor directo puede autorizar o
+    rechazar la solicitud, y en el caso de ciertos tipos de permisos, se
+    puede requerir la aprobacion de mas de una persona antes de que la
+    solicitud quede confirmada, replicando el esquema de aprobacion
+    jerarquica identificado en el benchmarking. Una vez aprobado, el
+    permiso o la incapacidad queda reflejado automaticamente en el
+    calendario de asistencia del colaborador y se sincroniza con la
+    informacion que utiliza el modulo de Nomina, de manera que las
+    ausencias no tengan que reportarse por separado ni corran el riesgo de
+    perderse entre el momento en que se aprueban y el momento en que se
+    calcula la planilla. Este registro tambien sirve como respaldo
+    documental ante cualquier revision posterior, ya que queda un historial
+    de quien solicito el permiso, quien lo aprobo y en que fecha se llevo a
+    cabo cada paso del proceso.
+  </p>
+
+  <h2>Vacaciones</h2>
+  <p>
+    La seccion de vacaciones muestra a cada colaborador un resumen claro de
+    los dias generados, los dias disponibles y los dias ya aprobados segun
+    el tipo de politica que le corresponda, junto con un calendario anual
+    en el que se marcan visualmente los periodos ya tomados y los que se
+    encuentran programados a futuro. Desde esta misma pantalla, el
+    colaborador puede solicitar nuevos periodos de vacaciones indicando las
+    fechas deseadas, mientras que el supervisor cuenta con una bandeja de
+    solicitudes pendientes de revision donde puede aprobar o rechazar cada
+    peticion. Adicionalmente, existe una vista de equipo que presenta una
+    linea de tiempo horizontal con las ausencias de cada colaborador a lo
+    largo del mes, lo cual facilita la planificacion del area y evita que
+    varias personas del mismo equipo se ausenten al mismo tiempo, afectando
+    la operacion diaria de la empresa. Este control resulta especialmente
+    relevante para las areas de produccion, donde coincidir varias
+    ausencias en un mismo periodo puede afectar directamente el
+    cumplimiento de las metas de manufactura.
+  </p>
+
+  <h2>Control y analiticas de asistencia</h2>
+  <p>
+    Ademas del registro individual, el modulo ofrece una vista general para
+    el equipo de Recursos Humanos donde se puede consultar de un solo
+    vistazo el estado de asistencia de todo el personal, incluyendo quienes
+    se encuentran ausentes en un dia determinado, cuantas solicitudes de
+    permisos o vacaciones estan pendientes de aprobacion y cuantas horas
+    extra se han acumulado por persona o por departamento durante el
+    periodo. Esta informacion puede filtrarse por fechas, por departamento
+    o por tipo de ausencia, lo que permite identificar patrones, como areas
+    con un numero inusualmente alto de incapacidades o colaboradores que
+    acumulan horas extra de forma recurrente. Para el personal de planta,
+    esta vista se complementa con indicadores relacionados con
+    productividad y eficiencia, de manera que el control de asistencia no
+    se limite unicamente a saber quien llego o no a trabajar, sino que
+    tambien sirva como insumo para calcular bonos ligados al cumplimiento
+    de metas de produccion y a la reduccion de merma.
+  </p>
+
+  <hr>
+
+  <h2>Como se conecta con los demas modulos</h2>
+  <p>
+    El modulo de Permisos, Vacaciones y Asistencia se apoya directamente en
+    la ficha del colaborador creada en Gestion de Empleados, ya que a
+    partir de ahi obtiene el horario asignado, el tipo de contrato y la
+    politica de vacaciones que le corresponde. A su vez, toda ausencia,
+    permiso o incapacidad aprobada en este modulo se refleja de manera
+    automatica en el modulo de Nomina, para que las incidencias del periodo
+    se descuenten o se paguen correctamente sin necesidad de que alguien
+    las transcriba manualmente entre un sistema y otro. Finalmente, el
+    modulo de Seguridad y Accesos define quien puede consultar la
+    informacion de asistencia de otras personas, quien puede aprobar
+    solicitudes de permisos y vacaciones, y quien unicamente puede ver y
+    gestionar su propio registro, evitando que datos como incapacidades
+    medicas o motivos de ausencia queden expuestos a personas que no
+    tienen relacion directa con el proceso.
+  </p>
+
+  <h2>Lo que tomamos del benchmarking</h2>
+  <table>
+    <tr>
+      <th>Sistema</th>
+      <th>Que aporta a Permisos, Vacaciones y Asistencia</th>
+    </tr>
+    <tr>
+      <td>Factorial</td>
+      <td>Calendario compartido de ausencias por equipo, hoja de fichaje individual con balance de horas y horas extra, y dashboard de vacaciones con dias generados, disponibles y aprobados.</td>
+    </tr>
+    <tr>
+      <td>Odoo Employees</td>
+      <td>Modulo de Time Off con flujo de aprobacion entre empleado y supervisor, vistas de calendario y Gantt para planificar al equipo, y estado claro de cada solicitud (pendiente, aprobada, rechazada).</td>
+    </tr>
+    <tr>
+      <td>Nomiplex</td>
+      <td>Modulo de vacaciones y ausencias con dias totales, utilizados y disponibles, adaptado al contexto guatemalteco de dias de asueto y prestaciones.</td>
+    </tr>
+    <tr>
+      <td>Aspel NOI</td>
+      <td>Complemento NOI Asistente con reloj checador digital, geolocalizacion, identificacion biometrica y sincronizacion automatica de incidencias con el calculo de nomina.</td>
+    </tr>
+  </table>
+
+  <p>
+    De Factorial se retoma principalmente la idea del calendario compartido
+    por equipo y la hoja de control horario individual, ya que permiten
+    visualizar de forma sencilla tanto el detalle personal de cada
+    colaborador como la disponibilidad general del equipo. De Odoo
+    Employees se toma el flujo de aprobacion entre empleado y supervisor,
+    junto con la posibilidad de dar seguimiento claro al estado de cada
+    solicitud, evitando que una peticion quede en un limbo sin respuesta.
+    De Nomiplex se aprovecha su orientacion al contexto guatemalteco en
+    cuanto al calculo de dias disponibles y su integracion directa con el
+    modulo de nomina. Finalmente, de Aspel NOI Asistente se retoma la idea
+    de un registro de asistencia mas riguroso mediante dispositivo movil,
+    con la posibilidad de incorporar en el futuro mecanismos de
+    geolocalizacion o identificacion biometrica para el personal de planta,
+    reforzando el control sobre las marcas de entrada y salida en las
+    distintas estaciones de produccion. Con estas referencias, el modulo de
+    Permisos, Vacaciones y Asistencia de Embutidos de Calidad S.A. busca
+    ofrecer un control confiable tanto para el personal administrativo como
+    para los operarios de planta, con procesos de aprobacion claros y una
+    integracion directa con el calculo de nomina.
+  </p>
+
+  <h3>Saludos</h3>
+
+  <p>
+    El equipo de Recursos Humanos (Equipo 4) es el encargado del desarrollo
+    de este modulo del proyecto.
+  </p>
+
+</body>
+</html>
