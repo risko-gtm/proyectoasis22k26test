@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f8f4;
+    color: #26382d;
+}
+
+header {
+    background-color: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    color: white;
+}
+
+header p {
+    color: #d8f3dc;
+}
+
+nav {
+    background-color: #2e7d32;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.inicio {
+    background-color: #e8f5e9;
+    padding: 40px;
+}
+
+.inicio h2 {
+    color: #1b5e20;
+}
+
+.gestion {
+    background-color: white;
+    padding: 40px;
+}
+
+.gestion h2 {
+    color: #1b5e20;
+}
+
+.gestion h3 {
+    color: #2e7d32;
+}
+
+.beneficios {
+    background-color: #dcedc8;
+    padding: 40px;
+}
+
+.beneficios h2 {
+    color: #1b5e20;
+}
+
+.beneficios h3 {
+    color: #2e7d32;
+}
+
+.conclusion {
+    background-color: white;
+    padding: 40px;
+}
+
+.conclusion h2 {
+    color: #1b5e20;
+}
+
+footer {
+    background-color: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

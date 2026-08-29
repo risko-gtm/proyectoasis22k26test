@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benchmarking · Gestión de Inventarios — Embutidos de Calidad S.A.</title>
+<link rel="stylesheet" href="estilos/inventarios.css">
+</head>
+<body>
+
+<header class="encabezado">
+    <div class="logo">
+        <h1>Gestión de Inventarios</h1>
+        <p>Benchmarking propuesto · Embutidos de Calidad S.A.</p>
+    </div>
+</header>
+
+<main>
+
+    <section class="presentacion">
+        <h2>¿Qué hace el sistema?</h2>
+        <p>El sistema de gestión de inventarios permite controlar las cantidades de productos que posee la empresa y registrar las operaciones que modifican esas cantidades. Su función principal es mantener actualizada la información de las existencias y facilitar al usuario la consulta de los productos disponibles.</p>
+        <p>En el contexto de Embutidos de Calidad S.A., el sistema debe permitir controlar el inventario de productos y registrar sus entradas, salidas y traslados entre bodegas. Además, la consulta de disponibilidad de stock debe realizarse con un tiempo máximo de 2 segundos.</p>
+    </section>
+
+    <section class="informacion">
+        <div class="tarjeta">
+            <h3>RF-LOG-01</h3>
+            <p>El sistema registra entradas, salidas y traslados entre bodegas.</p>
+        </div>
+        <div class="tarjeta">
+            <h3>RNF-LOG-01</h3>
+            <p>La consulta de disponibilidad de stock debe responder en un máximo de 2 segundos.</p>
+        </div>
+    </section>
+
+    <section class="modulos">
+        <h2>¿Qué se utiliza y cómo se maneja el proceso?</h2>
+        <p class="descripcion">Elementos y operaciones que componen el módulo de inventario</p>
+
+        <div class="botones">
+            <a href="#" class="boton">
+                <span>01</span>
+                <strong>Inventario</strong>
+                <small>Referencia, etiqueta, almacén, bodega, producto y fecha de ingreso; es el control central del sistema.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>02</span>
+                <strong>Stock</strong>
+                <small>Muestra productos y cantidades disponibles en tabla, facilitando una consulta rápida.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>03</span>
+                <strong>Nuevo inventario</strong>
+                <small>Registra una operación nueva: producto, cantidad y bodega, y guarda el registro.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>04</span>
+                <strong>Consulta de existencia</strong>
+                <small>Permite verificar cuánto producto existe antes de realizar una operación.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>05</span>
+                <strong>Entradas y salidas</strong>
+                <small>Una entrada aumenta la cantidad disponible; una salida la disminuye.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>06</span>
+                <strong>Historial de movimientos</strong>
+                <small>Revisa cuándo se registró una entrada, salida o movimiento y qué producto fue afectado.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>07</span>
+                <strong>Traslado entre bodegas</strong>
+                <small>Identifica bodega de origen, destino, producto y cantidad; reduce en origen e incorpora en destino.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>08</span>
+                <strong>Reaprovisionamiento</strong>
+                <small>Producto, stock deseado, límite mínimo, número de pedido, valor a pedir y proveedores.</small>
+            </a>
+
+            <a href="#" class="boton">
+                <span>09</span>
+                <strong>Botones de acción</strong>
+                <small>Permiten crear, guardar, consultar, editar o ejecutar las operaciones disponibles.</small>
+            </a>
+        </div>
+    </section>
+
+    <section class="presentacion">
+        <h2>Características de implementarlo</h2>
+        <p>Facilita al usuario visualizar el stock mediante tablas en lugar de revisar registros manualmente.</p>
+        <p>Permite registrar las operaciones de inventario desde formularios y botones definidos.</p>
+        <p>Centraliza la información de las existencias y evita depender de controles separados.</p>
+        <p>Facilita la consulta del historial para conocer los movimientos realizados.</p>
+        <p>Permite mantener actualizado el stock después de entradas, salidas y traslados.</p>
+        <p>Ayuda a detectar diferencias y a tomar decisiones sobre disponibilidad de productos.</p>
+        <p>Puede incorporar filtros o búsquedas para encontrar rápidamente un producto.</p>
+    </section>
+
+    <section class="presentacion">
+        <h2>Conclusión</h2>
+        <p>El benchmarking de gestión de inventarios muestra que el sistema debe concentrar en una misma solución la consulta de stock, el registro de nuevos inventarios y movimientos, la consulta de existencias y el historial de operaciones.</p>
+        <p>Para Embutidos de Calidad S.A., la implementación debe asegurar el registro de entradas, salidas y traslados establecido en RF-LOG-01 y una consulta de stock con un tiempo máximo de respuesta de 2 segundos según RNF-LOG-01.</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Ficha de benchmarking — Gestión de Inventarios · Embutidos de Calidad S.A.</p>
+</footer>
+
+</body>
+</html>

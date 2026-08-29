@@ -1,0 +1,164 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root{
+  --navy: #16233A;
+  --navy-soft: #223251;
+  --slate: #55637A;
+  --paper: #F6F4EF;
+  --paper-dim: #ECE8DF;
+  --amber: #C8842A;
+  --line: #DAD5C8;
+  --white: #FFFFFF;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--navy);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap{
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- barra superior ---------- */
+.topbar{
+  background: var(--navy);
+  color: var(--paper);
+  border-bottom: 1px solid rgba(246,244,239,0.12);
+}
+.topbar .wrap{
+  display: flex;
+  align-items: center;
+  height: 68px;
+}
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.brand .tag{
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  border: 1px solid rgba(200,132,42,0.5);
+  padding: 3px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------- tipografía ---------- */
+h1, h2, h3{
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before{
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.lede{
+  font-size: 1.08rem;
+  color: var(--slate);
+  max-width: 62ch;
+}
+
+/* ---------- etiqueta estilo almacén ---------- */
+.shelf-tag{
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  background: var(--white);
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  padding: 3px 8px;
+  display: inline-block;
+}
+
+/* ---------- pasos del proceso ---------- */
+.pasos{
+  display: flex;
+  flex-direction: column;
+}
+.paso{
+  display: flex;
+  gap: 26px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+.pasos .paso:last-child{
+  border-bottom: 1px solid var(--line);
+}
+.paso .num{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--amber);
+  font-size: 0.95rem;
+  min-width: 40px;
+}
+.paso h3{
+  font-size: 1.15rem;
+}
+.paso p{
+  color: var(--slate);
+  margin-top: 6px;
+  max-width: 62ch;
+}
+
+/* ---------- nota final ---------- */
+.nota{
+  background: var(--paper-dim);
+  border-radius: 6px;
+  padding: 26px 28px;
+  max-width: 70ch;
+}
+.nota p{
+  margin: 10px 0 0;
+  color: var(--navy);
+  font-size: 0.96rem;
+}
+
+/* ---------- pie de página ---------- */
+footer{
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 30px 0 40px;
+  color: var(--slate);
+  font-size: 0.85rem;
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BENCHMARKING - Traslado de productos entre bodegas</title>
+    <link rel="stylesheet" href="estilos/traslado.css" />
+  </head>
+  <body>
+    <header>
+      <h1>BENCHMARKING</h1>
+      <h2>Traslado de productos entre bodegas</h2>
+    </header>
+
+    <main>
+      <h3>¿Qué hace el sistema?</h3>
+      <p>
+        El módulo de traslado entre bodegas dentro del ERP gestiona el flujo
+        físico de productos de Embutidos de Calidad S.A. entre sus distintas
+        sucursales y centros de almacenamiento. Específicamente, realiza las
+        siguientes funciones:
+      </p>
+      <ul>
+        <li>
+          <strong>Registro de movimientos:</strong> Administra el ingreso,
+          salida y transferencia física de mercancías entre bodegas.
+        </li>
+        <li>
+          <strong>Asignación logística y de transporte:</strong> Vincula las
+          órdenes de movimiento de inventario con las unidades de transporte y
+          los pilotos asignados.
+        </li>
+        <li>
+          <strong>Confirmación de recepción:</strong> Registra el ingreso de
+          inventario en la bodega de destino y confirma la recepción final del
+          pedido.
+        </li>
+      </ul>
+
+      <h3>¿Qué tecnología utiliza?</h3>
+      <p>
+        Basado en la arquitectura de un ERP y en los requerimientos del caso, la
+        solución integra:
+      </p>
+      <ul>
+        <li>
+          <strong>Módulo central de Inventarios y Logística:</strong> Software
+          de gestión para el control multitabla de existencias y trazabilidad de
+          lotes.
+        </li>
+        <li>
+          <strong>Base de datos transaccional:</strong> Garantiza consultas de
+          disponibilidad de inventario en tiempo real con tiempos de respuesta
+          reducidos.
+        </li>
+        <li>
+          <strong>Sistema de bitácora e historial inalterable:</strong> Registro
+          automatizado de trazabilidad que guarda el usuario, fecha, hora y
+          estación de trabajo de cada movimiento.
+        </li>
+        <li>
+          <strong>Motor de reportes y exportación:</strong> Herramientas de
+          generación de informes con capacidad de exportación a formatos PDF y
+          Excel.
+        </li>
+      </ul>
+
+      <h3>¿Cómo se maneja el proceso?</h3>
+
+      <img src="img/image1.png" alt="Proceso de traslado entre bodegas 1" width="650px" height="500px"/>
+      <img src="img/image2.png" alt="Proceso de traslado entre bodegas 2" width="650px" height="500px"/>
+
+      <p>
+        <strong>Configuración de Productos y Bodegas:</strong> Mediante los
+        formularios de parámetros (<em>New warehouse</em> y
+        <em>New product</em>), se registran las bodegas de origen/destino y la
+        ficha del embutido. Se activa el control obligatorio por lotes indicando
+        fechas de caducidad para garantizar la trazabilidad.
+      </p>
+
+      <p>
+        <strong>Solicitud y Muestreo de Calidad:</strong> La bodega emite la
+        solicitud de traslado entre sucursales. Se realiza la auditoría y
+        muestreo físico sobre el lote en origen para certificar el estado y la
+        cadena de frío del embutido previa a su salida.
+      </p>
+
+      <img src="img/image3.png" alt="Proceso de traslado entre bodegas 3" width="650px" height="500px"/>
+      <img src="img/image4.png" alt="Proceso de traslado entre bodegas 4" width="650px" height="500px"/>
+
+      <p>
+        <strong
+          >Registro del Traslado y Asignación de Transporte (Transfer
+          Stock):</strong
+        >
+        En el módulo de inventarios, desde la pestaña <em>Stock</em> de la ficha
+        del producto o el panel de <em>Mass stock transfer</em>, se ejecuta la
+        acción TRANSFER STOCK. Se completan los campos obligatorios:
+      </p>
+      <ul>
+        <li>Bodega de origen y Bodega de destino.</li>
+        <li>Cantidad a trasladar.</li>
+        <li>
+          <em>Lot/Serial number</em>, <em>Eat-by date</em> y
+          <em>Sell-by date</em> asignados.
+        </li>
+        <li>
+          <em>Movement or inventory code</em> y <em>Label of movement</em>,
+          vinculando en este campo la unidad de transporte y el piloto
+          responsable del viaje.
+        </li>
+      </ul>
+
+      <h3>¿Características de implementación?</h3>
+      <p>
+        La configuración técnica y operacional del módulo en el ERP facilita al
+        usuario ciertos procesos.
+      </p>
+      <ul>
+        <li>Interfaz de Transferencia Directa</li>
+        <li>Control Estricto de Lotes y Perecederos</li>
+        <li>Reportes y Métricas</li>
+      </ul>
+
+      <h3>Conclusión</h3>
+      <p>
+        La implementación del módulo de traslado entre bodegas en el ERP permite
+        a Embutidos de Calidad S.A. digitalizar y estandarizar su cadena de
+        suministro. Al integrar controles en el muestreo, asignación directa de
+        transporte y trazabilidad inalterable en tiempo real, el sistema
+        minimiza los descuadres de inventario, asegura la cadena de transporte y
+        respalda los objetivos de la empresa.
+      </p>
+    </main>
+  </body>
+</html>

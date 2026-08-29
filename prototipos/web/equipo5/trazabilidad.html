@@ -1,0 +1,338 @@
+```html
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Benchmarking - Trazabilidad y Reportes</title> 
+ 
+    <style> 
+        * { 
+            box-sizing: border-box; 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f2f4f7; 
+            margin: 0; 
+            color: #333; 
+        } 
+ 
+        /* NAV */ 
+        nav { 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            background-color: #1f4e79; 
+            padding: 15px 20px; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2); 
+        } 
+ 
+        nav ul { 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+        } 
+ 
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 14px; 
+            border-radius: 6px; 
+            font-size: 14px; 
+            transition: 0.3s; 
+        } 
+ 
+        nav a:hover { 
+            background-color: #2f75b5; 
+        } 
+ 
+        /* PORTADA */ 
+        .portada { 
+            min-height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 40px; 
+            background: linear-gradient(135deg, #eaf2f8, #ffffff); 
+        } 
+ 
+        .portada h1 { 
+            color: #1f4e79; 
+            font-size: 50px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .portada h2 { 
+            color: #666; 
+            font-weight: normal; 
+            border: none; 
+            margin: 0; 
+        } 
+ 
+        .portada-linea { 
+            width: 100px; 
+            height: 4px; 
+            background-color: #2f75b5; 
+            margin: 25px 0; 
+            border-radius: 5px; 
+        } 
+ 
+        /* SECCIONES */ 
+        section { 
+            min-height: 100vh; 
+            padding: 80px 10%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        } 
+ 
+        section:nth-child(even) { 
+            background-color: #ffffff; 
+        } 
+ 
+        section:nth-child(odd) { 
+            background-color: #f2f4f7; 
+        } 
+ 
+        .contenido { 
+            max-width: 1000px; 
+            width: 100%; 
+            margin: auto; 
+        } 
+ 
+        h2 { 
+            color: #1f4e79; 
+            font-size: 30px; 
+            border-bottom: 3px solid #2f75b5; 
+            padding-bottom: 10px; 
+            margin-bottom: 25px; 
+        } 
+ 
+        h3 { 
+            color: #2f75b5; 
+            font-size: 22px; 
+            margin-top: 30px; 
+        } 
+ 
+        p { 
+            background-color: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            line-height: 1.7; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08); 
+        } 
+ 
+        /* PROCESOS */ 
+        .proceso { 
+            margin-bottom: 35px; 
+        } 
+ 
+        /* FOOTER */ 
+        footer { 
+            background-color: #1f4e79; 
+            color: white; 
+            text-align: center; 
+            padding: 25px; 
+        } 
+ 
+        /* RESPONSIVE */ 
+        @media (max-width: 700px) { 
+ 
+            nav ul { 
+                gap: 3px; 
+            } 
+ 
+            nav a { 
+                font-size: 12px; 
+                padding: 8px; 
+            } 
+ 
+            .portada h1 { 
+                font-size: 35px; 
+            } 
+ 
+            section { 
+                padding: 60px 20px; 
+            } 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <!-- NAV --> 
+    <nav> 
+        <ul> 
+            <li><a href="#inicio">Inicio</a></li> 
+            <li><a href="#sistema">¿Qué hace?</a></li> 
+            <li><a href="#tecnologia">Tecnología</a></li> 
+            <li><a href="#proceso">Proceso</a></li> 
+            <li><a href="#implementacion">Implementación</a></li> 
+            <li><a href="#conclusion">Conclusión</a></li> 
+            <li><a href="#recomendacion">Recomendación</a></li> 
+        </ul> 
+    </nav> 
+ 
+    <!-- PORTADA --> 
+    <section id="inicio" class="portada"> 
+ 
+        <h1>Benchmarking</h1> 
+ 
+        <div class="portada-linea"></div> 
+ 
+        <h2>Trazabilidad, Reportes y Comparación Final</h2> 
+ 
+    </section> 
+ 
+    <!-- 1 --> 
+    <section id="sistema"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>1. ¿Qué hace el sistema?</h2> 
+ 
+            <p> 
+                Zoho Inventory controla y da seguimiento a las operaciones de inventario. 
+                Registra los movimientos de los productos y permite consultar 
+                transferencias, ajustes de existencias, envíos y reportes. 
+            </p> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <!-- 2 --> 
+    <section id="tecnologia"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>2. ¿Qué tecnología se utiliza?</h2> 
+ 
+            <p> 
+                Es una solución en la nube que guarda la información de productos, 
+                existencias y movimientos en una base de datos centralizada. 
+            </p> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <!-- 3 --> 
+    <section id="proceso"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>3. ¿Cómo se maneja el proceso?</h2> 
+ 
+            <div class="proceso"> 
+ 
+                <h3>Transferencia de productos</h3> 
+ 
+                <p> 
+                    Se entra a Transfer Orders, se selecciona el almacén de origen y 
+                    destino y se agregan los productos. 
+                </p> 
+ 
+            </div> 
+ 
+            <div class="proceso"> 
+ 
+                <h3>Ajuste de inventario</h3> 
+ 
+                <p> 
+                    Desde Items se selecciona el producto y se utiliza la opción 
+                    Adjust Stock para realizar el ajuste. 
+                </p> 
+ 
+            </div> 
+ 
+            <div class="proceso"> 
+ 
+                <h3>Envíos</h3> 
+ 
+                <p> 
+                    Los envíos se generan a partir de una orden de venta confirmada 
+                    y se puede consultar su estado. 
+                </p> 
+ 
+            </div> 
+ 
+            <div class="proceso"> 
+ 
+                <h3>Reportes</h3> 
+ 
+                <p> 
+                    En Reports se pueden filtrar los movimientos por almacén, 
+                    producto o fecha. 
+                </p> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <!-- 4 --> 
+    <section id="implementacion"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>4. Características de la implementación</h2> 
+ 
+            <p> 
+                Cada movimiento queda registrado con fecha, usuario y motivo. 
+                Esto permite saber quién realizó una acción y por qué. 
+            </p> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <!-- 5 --> 
+    <section id="conclusion"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>5. Conclusión</h2> 
+ 
+            <p> 
+                Zoho Inventory permite controlar, registrar y consultar las 
+                operaciones de inventario mediante un flujo organizado. 
+            </p> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <!-- 6 --> 
+    <section id="recomendacion"> 
+ 
+        <div class="contenido"> 
+ 
+            <h2>6. Recomendación</h2> 
+ 
+            <p> 
+                Se recomienda capacitar a los usuarios en transferencias, 
+                ajustes de stock, envíos y reportes, además de definir 
+                correctamente los roles y permisos. 
+            </p> 
+ 
+        </div> 
+ 
+    </section> 
+ 
+    <footer> 
+        Gabriela Pinto García - 9959 23 1087 
+    </footer> 
+ 
+</body> 
+</html>
+```

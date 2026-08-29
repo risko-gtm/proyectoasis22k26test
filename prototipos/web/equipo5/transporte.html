@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transporte y Distribución</title>
+    <link rel="stylesheet" href="estilos/transporteestilos.css" />
+</head>
+
+<body>
+
+    <h1>Transporte y Distribución</h1>
+
+    <h2>¿Qué hace el sistema?</h2>
+
+    <p>
+        Odoo es un sistema empresarial que permite gestionar diferentes procesos
+        de una organización. En el área que nos interesa, Inventario, permite
+        controlar los movimientos de productos desde que entran a una ubicación
+        hasta que son trasladados o entregados.
+    </p>
+
+    <p>
+        El sistema permite registrar las operaciones relacionadas con estos
+        movimientos y mantener la información del inventario asociada a ellos.
+    </p>
+
+    <p>
+        Podríamos utilizar un sistema de este tipo para evitar que el encargado
+        de bodega tenga que llevar los movimientos únicamente en hojas de Excel
+        o documentos físicos.
+    </p>
+
+    <h2>¿Qué tecnología se utiliza?</h2>
+
+    <p>
+        Una de las tecnologías más interesantes para nuestro caso es el código
+        de barras.
+    </p>
+
+    <p>
+        En lugar de que el trabajador escriba manualmente el código o nombre de
+        cada producto, puede escanearlo.
+    </p>
+
+    <p>
+        El trabajador utiliza un lector o dispositivo compatible y el sistema
+        identifica el producto.
+    </p>
+
+    <p>
+        Otra ventaja es que las operaciones pueden realizarse desde dispositivos
+        móviles o equipos utilizados directamente en la bodega.
+    </p>
+
+    <p>
+        La idea es que pueda realizar parte del proceso desde el lugar donde
+        está trabajando.
+    </p>
+
+    <h2>¿Cómo se maneja el proceso?</h2>
+
+    <p>
+        También es importante entender que la información no debería estar
+        separada. La información del traslado debe relacionarse con el inventario.
+    </p>
+
+    <p>
+        En nuestro caso, esto es especialmente importante porque el documento
+        establece que el sistema debe registrar los movimientos de inventario y
+        que la consulta de disponibilidad de stock debe funcionar en tiempo real.
+    </p>
+
+    <ol>
+        <li>
+            Primero debe existir una operación que indique que determinados
+            productos necesitan ser trasladados o entregados.
+        </li>
+
+        <li>
+            En Odoo se pueden consultar las operaciones pendientes relacionadas
+            con las entregas y movimientos.
+        </li>
+
+        <li>
+            El usuario selecciona la operación que desea procesar.
+            <p>
+                Permite que el trabajador verifique que está procesando la
+                operación correcta.
+            </p>
+        </li>
+
+        <li>
+            El sistema puede trabajar con ubicaciones específicas.
+            <p>
+                Esto ayuda a evitar retirar mercancía de una ubicación equivocada.
+            </p>
+        </li>
+
+        <li>
+            Una vez localizada la mercancía, el trabajador escanea los productos.
+            <p>
+                El usuario verifica que la cantidad física coincida con la
+                cantidad registrada.
+            </p>
+        </li>
+
+        <li>
+            En una operación pueden existir opciones para agregar productos o
+            modificar cantidades cuando corresponda.
+            <p>
+                El usuario puede incorporar ese producto a la operación siguiendo
+                las reglas y permisos definidos por la empresa.
+            </p>
+        </li>
+
+        <li>
+            Después de revisar la información, el usuario confirma los cambios.
+            <p>
+                Finalmente aparece una acción de validación de la operación.
+            </p>
+
+            <p>
+                El botón Validate / Validar es importante porque representa la
+                confirmación de que la operación se ha procesado.
+            </p>
+        </li>
+    </ol>
+
+    <h2>Datos que podríamos agregar al sistema</h2>
+
+    <ul>
+        <li>Código del vehículo.</li>
+        <li>Placa.</li>
+        <li>Tipo de vehículo.</li>
+        <li>Conductor.</li>
+        <li>Fecha de salida.</li>
+        <li>Hora de salida.</li>
+        <li>Ruta.</li>
+        <li>Estado del transporte.</li>
+    </ul>
+
+    
+   
+
+    <p>
+        Si se incorpora esta funcionalidad al sistema podemos saber el código de
+        traslado, el origen de este, el destino al cual se dirige, el vehículo
+        en el que es transportado y el estado en el cual se encuentra el paquete
+        en ese momento.
+    </p>
+
+    <h3>Permite conocer el estado de cada traslado</h3>
+
+    <p>
+        Al momento de contar con un sistema de transporte que registre el
+        movimiento del paquete no necesita el usuario o personal consultar con
+        una persona, sino revisar el sistema para ver cómo se encuentra en ese
+        momento.
+    </p>
+
+    <p>
+        Después de analizar Odoo como referencia para la gestión de inventarios
+        y operaciones de distribución, se puede concluir que la utilización de
+        un sistema informático permite organizar y controlar de una manera más
+        eficiente el traslado de productos entre diferentes ubicaciones.
+    </p>
+
+    <p>
+        Características como el registro de operaciones, utilización de códigos
+        de barras, control de cantidades y validación de movimientos pueden
+        reducir errores manuales y facilitar el trabajo de los empleados.
+    </p>
+
+    <p>
+        Para nuestra empresa, se recomienda implementar un módulo de Transporte
+        y Distribución que permita crear órdenes de traslado, seleccionar la
+        bodega de origen y destino, registrar los productos y cantidades,
+        asignar el vehículo responsable, controlar el estado del traslado y
+        confirmar la recepción de los productos en la bodega destino.
+    </p>
+
+    <p>
+        De esta manera, el proceso estaría integrado con el control de
+        inventarios y permitiría mantener una mejor trazabilidad de los productos
+    </p>
+
+</body>
+</html>
