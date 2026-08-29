@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Órdenes y OMS — Sección 2</title>
+
+<style>
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+    color: #000;
+    line-height: 1.5;
+    border: 1px solid #000;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #000;
+  }
+
+  .logo {
+    border: 2px solid #000;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 4px 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  .titles {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .company {
+    font-weight: bold;
+  }
+
+  main {
+    padding: 24px 20px 30px;
+  }
+
+  h1 {
+    font-size: 26px;
+    margin: 0 0 14px;
+  }
+
+  h2 {
+    font-size: 19px;
+    margin: 30px 0 6px;
+  }
+
+  p {
+    margin: 0 0 12px;
+    font-size: 15px;
+  }
+
+  .intro {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    border: 1px solid #1a5aa8;
+    color: #1a5aa8;
+    padding: 5px 12px;
+    text-decoration: none;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #eef4fb;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0 14px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+
+  table th,
+  table td {
+    border: 1px solid #000;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  table th {
+    background: #f2f2f2;
+  }
+
+  .detail {
+    display: none;
+    border: 1px solid #999;
+    padding: 12px 14px;
+    margin: 10px 0 6px;
+    background: #fafafa;
+    font-size: 14px;
+  }
+
+  .detail.open {
+    display: block;
+  }
+
+  ul {
+    margin: 6px 0 12px 20px;
+    font-size: 15px;
+  }
+
+  footer {
+    border-top: 1px solid #000;
+    padding: 14px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #444;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">EC</div>
+
+  <div class="titles">
+    <span class="company">Embutidos de Calidad S.A.</span>
+    &nbsp; Gestión de Órdenes y OMS — Sección 2
+  </div>
+</header>
+
+<main>
+
+  <h1>Gestión de Órdenes y OMS</h1>
+
+  <p class="intro">
+    Este módulo presenta el análisis de benchmarking realizado sobre la gestión de
+    órdenes en comercio electrónico y su prueba en Odoo ERP. El enfoque principal
+    comprende el rastreo del pedido, las reglas de cancelación, la reserva de
+    inventario y las validaciones para la prevención de fraude.
+  </p>
+
+
+  <h2>2. Gestión de Órdenes y OMS</h2>
+
+  <p>
+    La gestión de órdenes permite controlar el pedido desde el momento en que el
+    cliente realiza la compra hasta su entrega. En este análisis se comparan las
+    capacidades observadas en Mercado Libre con las funciones disponibles en Odoo Demo.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d2').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d2">
+    <p>
+      <strong>Enfoque del módulo:</strong> rastreo del pedido, reglas de cancelación,
+      reserva de inventario y validaciones antifraude.
+    </p>
+
+    <ul>
+      <li>Seguimiento del estado de la orden.</li>
+      <li>Control de cancelaciones según el estado del pedido.</li>
+      <li>Reserva de productos disponibles en inventario.</li>
+      <li>Validaciones para identificar operaciones sospechosas.</li>
+      <li>Coordinación de pedidos entre compradores y vendedores.</li>
+    </ul>
+  </div>
+
+
+  <h2>2.1. Caso Real — Mercado Libre</h2>
+
+  <p>
+    En este caso se eligió Mercado Libre, ya que es un comercio electrónico que
+    gestiona un gran volumen de pedidos entre compradores y vendedores. El usuario
+    puede consultar el estado de su compra y realizar seguimiento de esta hasta su entrega.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d21').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d21">
+
+    <p>
+      <strong>Rastreo del pedido:</strong> el comprador puede consultar el estado
+      de su compra y realizar seguimiento del pedido durante las diferentes etapas
+      del proceso hasta su entrega.
+    </p>
+
+    <p>
+      <strong>Cancelación:</strong> el usuario puede solicitar la cancelación de
+      una compra dependiendo del estado en el que se encuentre el pedido. Si se
+      encuentra despachado, ya no se puede cancelar, pero es posible rechazar su entrega.
+    </p>
+
+    <p>
+      <strong>Reserva de inventario:</strong> la disponibilidad de los productos
+      se puede controlar durante la compra, evitando que los vendedores ofrezcan
+      productos que no tienen stock en ese momento.
+    </p>
+
+    <p>
+      <strong>Validación y prevención de fraude:</strong> existen mecanismos
+      mediante los cuales pueden identificarse operaciones consideradas sospechosas
+      antes de continuar con el envío.
+    </p>
+
+  </div>
+
+
+  <h2>2.2. Prueba en ERP — Odoo Demo</h2>
+
+  <p>
+    En Odoo se realizaron pruebas de gestión de órdenes utilizando los módulos
+    de Ventas e Inventario. El objetivo fue comprobar el funcionamiento del ciclo
+    básico de una orden desde su creación hasta la entrega o cancelación.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d22').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d22">
+
+    <p><strong>Las pruebas realizadas fueron:</strong></p>
+
+    <ul>
+      <li>Creación de una orden de venta.</li>
+      <li>Confirmación de la orden.</li>
+      <li>Generación de la orden de entrega.</li>
+      <li>Verificación de disponibilidad y reserva del producto.</li>
+      <li>Cancelación de una orden.</li>
+      <li>Consulta del estado de la entrega.</li>
+    </ul>
+
+  </div>
+
+
+  <h2>Creación y Confirmación de la Orden</h2>
+
+  <p>
+    La orden de venta contiene los datos del cliente, el producto seleccionado
+    y la cantidad solicitada. El estado de la orden confirma que la venta fue
+    registrada correctamente en Odoo.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d23').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d23">
+
+    <p>
+      <strong>Resultado de la prueba:</strong> la orden fue creada y posteriormente
+      confirmada, permitiendo avanzar hacia el proceso de inventario y la generación
+      de la orden de entrega.
+    </p>
+
+  </div>
+
+
+  <h2>Orden de Entrega</h2>
+
+  <p>
+    La orden de entrega contiene los productos correspondientes a la venta,
+    junto con la información relacionada con su entrega y el estado actual de la operación.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d24').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d24">
+
+    <p>
+      La orden de entrega permite consultar los productos que deben ser preparados
+      y enviados al cliente, conectando la orden de venta con la gestión física
+      del inventario.
+    </p>
+
+  </div>
+
+
+  <h2>Reserva de Inventario</h2>
+
+  <p>
+    La reserva de inventario muestra la cantidad solicitada y la cantidad reservada
+    de cada producto. También se incluye la disponibilidad necesaria para cumplir
+    con la entrega.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d25').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d25">
+
+    <p>
+      <strong>Resultado:</strong> Odoo permite verificar la disponibilidad del
+      producto y realizar su reserva mediante el módulo de Inventario.
+    </p>
+
+    <p>
+      Esta funcionalidad permite relacionar la demanda generada por la orden con
+      las existencias disponibles.
+    </p>
+
+  </div>
+
+
+  <h2>Cancelación</h2>
+
+  <p>
+    La orden de venta presenta el estado <strong>Cancelado</strong>, indicando
+    que la operación fue cancelada antes de completar la entrega.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d26').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d26">
+
+    <p>
+      <strong>Resultado de la prueba:</strong> Odoo permite cancelar una orden
+      de venta y reflejar el cambio de estado de la operación dentro del sistema.
+    </p>
+
+    <p>
+      Para implementar reglas de cancelación más específicas, similares a las
+      utilizadas en Mercado Libre, sería necesario configurar reglas adicionales
+      según el estado de la orden y de la entrega.
+    </p>
+
+  </div>
+
+
+  <h2>Consulta del Estado de la Entrega</h2>
+
+  <p>
+    Odoo permite consultar las operaciones de entrega relacionadas con una orden,
+    facilitando el control del estado de la operación logística.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d27').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d27">
+
+    <p>
+      La consulta del estado permite conocer el avance de la operación de entrega
+      y verificar si los productos han sido procesados dentro del flujo de Inventario.
+    </p>
+
+  </div>
+
+
+  <h2>2.3. Análisis de Brechas — Gap Analysis</h2>
+
+  <p>
+    La siguiente comparación muestra las principales diferencias encontradas entre
+    la gestión de órdenes de Mercado Libre y las funcionalidades observadas durante
+    la prueba de Odoo Demo.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d28').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d28">
+
+    <table>
+
+      <tr>
+        <th>Funcionalidad</th>
+        <th>Mercado Libre</th>
+        <th>Odoo Demo</th>
+        <th>Brecha</th>
+      </tr>
+
+      <tr>
+        <td><strong>Rastreo del pedido</strong></td>
+        <td>
+          Permite al comprador consultar el estado y seguimiento de su compra.
+        </td>
+        <td>
+          Permite consultar órdenes y entregas.
+        </td>
+        <td>
+          Se requiere mayor integración para ofrecer una experiencia de seguimiento similar.
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Cancelación</strong></td>
+        <td>
+          Permite gestionar la cancelación dependiendo del estado de la compra.
+        </td>
+        <td>
+          Permite cancelar órdenes y operaciones.
+        </td>
+        <td>
+          Odoo cubre la función básica, pero requiere configuración para reglas específicas.
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Reserva de inventario</strong></td>
+        <td>
+          Controla la disponibilidad de productos durante el proceso de venta.
+        </td>
+        <td>
+          Permite reservar productos mediante Inventario.
+        </td>
+        <td>
+          La función básica está cubierta.
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Antifraude</strong></td>
+        <td>
+          Cuenta con mecanismos para detectar operaciones sospechosas.
+        </td>
+        <td>
+          No se demostró un sistema antifraude equivalente en la prueba.
+        </td>
+        <td>
+          Es una brecha importante.
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Gestión de marketplace</strong></td>
+        <td>
+          Coordina compradores, vendedores y pedidos a gran escala.
+        </td>
+        <td>
+          Está orientado principalmente a la gestión empresarial mediante sus módulos.
+        </td>
+        <td>
+          Se necesitarían integraciones y configuraciones adicionales para un marketplace de este nivel.
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+
+
+  <h2>Conclusión</h2>
+
+  <p>
+    La prueba realizada demuestra que Odoo cuenta con las funcionalidades básicas
+    necesarias para gestionar órdenes, inventario y entregas. Sin embargo, al
+    compararlo con el modelo de operación de Mercado Libre, se identifican brechas
+    principalmente en el rastreo avanzado de pedidos, las reglas específicas de
+    cancelación, la prevención de fraude y la gestión de un marketplace de gran escala.
+  </p>
+
+  <button class="btn"
+    onclick="document.getElementById('d29').classList.toggle('open')">
+    Conoce más
+  </button>
+
+  <div class="detail" id="d29">
+
+    <p>
+      <strong>Conclusión final:</strong> Odoo puede cubrir adecuadamente el flujo
+      empresarial básico de una orden, desde la venta hasta la entrega y reserva
+      de inventario. Para alcanzar un nivel de operación comparable con una
+      plataforma como Mercado Libre, sería necesario complementar el ERP mediante
+      configuraciones, automatizaciones e integraciones adicionales.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  Sección 2 · Gestión de Órdenes y OMS — Benchmarking de Mercado Libre y Odoo ·
+  Universidad Mariano Gálvez de Guatemala
+</footer>
+
+</body>
+</html>

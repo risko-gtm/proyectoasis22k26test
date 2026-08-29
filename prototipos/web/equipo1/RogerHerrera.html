@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Embutidos de Calidad S.A. - Conciliación Bancaria y Comisiones</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #111111;
+  }
+  .container {
+    border: 2px solid #000000;
+    padding: 30px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  .logo-box {
+    border: 2px solid #333333;
+    padding: 8px 14px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333333;
+  }
+  .header-text {
+    font-size: 15px;
+  }
+  .header-text .company {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .intro {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  .encargado {
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 19px;
+    border-left: 4px solid #333333;
+    padding-left: 10px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #222222;
+  }
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 8px 0 14px 0;
+  }
+  ul {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    padding-left: 22px;
+  }
+  ul li {
+    margin-bottom: 6px;
+  }
+  .section-box {
+    border: 1px solid #dddddd;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid #cccccc;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo-box">EC</div>
+    <div class="header-text">
+      <span class="company">Embutidos de Calidad S.A.</span> &nbsp;&nbsp; Sistema de Gestión de Recursos Humanos
+    </div>
+  </div>
+
+  <h1>4. Conciliación Bancaria y Comisiones</h1>
+  <p class="encargado">Encargado: Roger Yankee de Jesús Herrera Alcántara &nbsp;&mdash;&nbsp; 0901-23-2429</p>
+
+  <h2>4.1. Caso Real</h2>
+  <div class="section-box">
+    <p>
+      <strong>Estructura de comisiones:</strong> el porcentaje descontado varía según el método de pago (crédito, débito, QR, cuotas)
+      y según el plazo de liquidación que el vendedor elige. Ejemplo: crédito 6,29% + IVA vs. débito 3,25% + IVA para cobro
+      inmediato; en el marketplace, el cobro por vender va de 12,05% a 17,51% según la categoría del producto.
+    </p>
+    <p>
+      <strong>Reembolsos y contracargos:</strong> el Programa de Protección al Vendedor cubre al comercio ante un contracargo
+      si el producto es tangible y el envío tiene seguimiento válido. El vendedor debe responder con evidencia de entrega
+      dentro de un plazo definido; si no lo hace, pierde el dinero automáticamente. No cubre productos digitales ni envíos
+      sin tracking.
+    </p>
+    <p>
+      <strong>Tiempos de liquidación:</strong> el vendedor configura si quiere el dinero disponible de inmediato (mayor
+      comisión) o esperar 14 o 30 días (menor comisión). Un panel de actividad muestra, cobro por cobro, si el dinero ya
+      está disponible o sigue en proceso, insumo clave para conciliar contra el estado de cuenta bancario.
+    </p>
+  </div>
+
+  <h2>4.2. Prueba en ERP (Odoo Demo)</h2>
+  <div class="section-box">
+    <p>Ingresando una compra.</p>
+    <p>
+      Se procede a pagar la factura. Confirmamos que se vea reflejada en nuestro tablero de transacciones bancarias.
+    </p>
+  </div>
+
+  <h2>4.3. Análisis de Brechas (Gap Analysis)</h2>
+  <div class="section-box">
+    <h3>Situación actual</h3>
+    <p>
+      Odoo permite registrar facturas, pagos y movimientos bancarios, además de realizar conciliaciones bancarias. Sin
+      embargo, el sistema estándar no representa de forma específica el modelo de comisiones y liquidaciones descrito en
+      el caso real.
+    </p>
+
+    <h3>Brechas identificadas</h3>
+    <ul>
+      <li><strong>Comisiones:</strong> Odoo no tiene configuradas automáticamente las diferentes tasas según el método de pago (crédito, débito, QR o cuotas).</li>
+      <li><strong>Liquidaciones:</strong> no está configurado un flujo específico para manejar pagos disponibles inmediatamente, a 14 días o a 30 días.</li>
+      <li><strong>Contracargos:</strong> no existe un proceso específico para controlar automáticamente los contracargos y verificar la evidencia de entrega.</li>
+      <li><strong>Productos digitales:</strong> el caso real diferencia entre productos físicos y digitales, mientras que Odoo requiere una configuración adicional para manejar estas condiciones.</li>
+      <li><strong>Conciliación:</strong> Odoo sí permite conciliar movimientos bancarios, pero sería necesario configurar cuentas y reglas específicas para identificar automáticamente las comisiones.</li>
+    </ul>
+
+    <h3>Propuesta de mejora</h3>
+    <p>
+      Configurar cuentas contables para las comisiones, reglas de conciliación automática y condiciones de pago según el
+      plazo de liquidación. De esta forma, Odoo podría acercarse al funcionamiento del caso real y reducir el trabajo
+      manual al conciliar los pagos.
+    </p>
+  </div>
+
+  <div class="footer">
+    Sistema de Gestión de Recursos Humanos &mdash; Embutidos de Calidad S.A.
+  </div>
+
+</div>
+</body>
+</html>

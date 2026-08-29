@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benchmarking: Checkout y Pasarelas de Pago</title>
+<style>
+  :root{
+    --border:#1a1a1a;
+    --link:#2c6fb0;
+    --text:#1a1a1a;
+    --muted:#3a3a3a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:40px 20px;
+    background:#f4f4f4;
+    font-family: Georgia, 'Times New Roman', serif;
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+  }
+  .page{
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border:1.5px solid var(--border);
+    padding:36px 44px 50px;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding-bottom:22px;
+    border-bottom:1.5px solid var(--border);
+    margin-bottom:26px;
+  }
+  .logo-box{
+    border:2px solid var(--border);
+    padding:8px 14px;
+    font-family: Georgia, serif;
+    font-weight:bold;
+    font-size:26px;
+    line-height:1;
+  }
+  .brand-name{
+    font-weight:bold;
+    font-size:16px;
+  }
+  .brand-sep{
+    margin:0 6px;
+    color:#666;
+  }
+  .brand-sub{
+    font-size:15px;
+    color:var(--muted);
+  }
+  h1.main-title{
+    font-size:28px;
+    margin:0 0 14px;
+  }
+  p.intro{
+    font-size:15.5px;
+    line-height:1.55;
+    color:#222;
+    margin:0 0 30px;
+  }
+  section.module{
+    margin-bottom:34px;
+  }
+  h2.module-title{
+    font-size:19px;
+    margin:0 0 8px;
+  }
+  p.module-desc{
+    font-size:15px;
+    line-height:1.55;
+    color:#222;
+    margin:0 0 14px;
+  }
+  .meta-line{
+    font-size:13.5px;
+    color:var(--muted);
+    margin:-6px 0 12px;
+    font-style:italic;
+  }
+  button.toggle-btn{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:var(--link);
+    background:#fff;
+    border:1px solid var(--link);
+    padding:7px 16px;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  button.toggle-btn:hover{
+    background:#eaf2fb;
+  }
+  .details{
+    display:none;
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px dashed #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .details.open{
+    display:block;
+  }
+  .sub{
+    margin-bottom:26px;
+  }
+  .sub:last-child{
+    margin-bottom:0;
+  }
+  .sub h3{
+    font-family: Georgia, serif;
+    font-size:16.5px;
+    margin:0 0 8px;
+    color:#111;
+  }
+  .sub p{
+    font-size:14.5px;
+    line-height:1.6;
+    color:#2a2a2a;
+    margin:0 0 12px;
+  }
+  .sub ul{
+    font-size:14.5px;
+    line-height:1.6;
+    color:#2a2a2a;
+    margin:0 0 12px;
+    padding-left:20px;
+  }
+  .shots{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:12px 0 16px;
+  }
+  .shots img{
+    width:100%;
+    max-width:420px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    display:block;
+  }
+  .shots.single img{
+    max-width:600px;
+  }
+  figcaption, .cap{
+    font-size:12px;
+    color:#777;
+    margin-top:4px;
+    font-style:italic;
+  }
+  table.gap-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin:10px 0 18px;
+  }
+  table.gap-table th, table.gap-table td{
+    border:1px solid #ccc;
+    padding:9px 10px;
+    text-align:left;
+    vertical-align:top;
+    line-height:1.45;
+  }
+  table.gap-table th{
+    background:#f0f0f0;
+    font-family: Georgia, serif;
+  }
+  .highlight-box{
+    background:#f7f9fc;
+    border:1px solid #cfd9e6;
+    padding:14px 18px;
+    font-size:14.5px;
+    line-height:1.6;
+    border-radius:3px;
+  }
+  .highlight-box strong{
+    display:block;
+    margin-bottom:6px;
+    font-family:Georgia, serif;
+  }
+  footer{
+    margin-top:36px;
+    padding-top:14px;
+    border-top:1px solid #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12.5px;
+    color:#888;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="logo-box">BP</div>
+    <div>
+      <span class="brand-name">Benchmarking de Procesos</span>
+      <span class="brand-sep">·</span>
+      <span class="brand-sub">Checkout y Pasarelas de Pago</span>
+    </div>
+  </header>
+
+  <h1 class="main-title">Checkout y Pasarelas de Pago</h1>
+  <p class="intro">
+    Este informe reúne el análisis comparativo del proceso de checkout y pago en línea,
+    tomando como caso real la tienda <strong>ZARA Guatemala</strong> y contrastándolo con una
+    prueba realizada en el ERP <strong>Odoo (entorno Demo)</strong>. A continuación se describe
+    brevemente cada etapa del proceso, el análisis de brechas resultante y las funciones
+    consideradas indispensables para un sistema propio.
+  </p>
+
+  <!-- MODULO 1: CASO REAL ZARA -->
+  <section class="module">
+    <h2 class="module-title">1.1. Caso Real &ndash; ZARA Guatemala</h2>
+    <p class="meta-line">Responsable: Natali &nbsp;|&nbsp; Enfoque: experiencia de pago, variedad de pasarelas, velocidad de compra y emisión inmediata de comprobantes.</p>
+    <p class="module-desc">
+      Empresa internacional del sector moda con plataforma de comercio electrónico donde los
+      clientes seleccionan productos, realizan el checkout, efectúan el pago y gestionan
+      posteriormente sus pedidos. El análisis se realizó desde la perspectiva del usuario.
+    </p>
+    <button class="toggle-btn" onclick="toggle('zara')">Conoce más</button>
+
+    <div class="details" id="zara">
+
+      <div class="sub">
+        <h3>1.1.1. Selección del producto y cesta de compra</h3>
+        <p>El proceso comienza cuando el usuario selecciona un producto, elige las
+        características disponibles, como talla, color, y lo agrega a la cesta.</p>
+        <p>Desde la cesta se pueden revisar los productos seleccionados antes de iniciar
+        formalmente el proceso de checkout. Esta primera etapa permite verificar la
+        información y el precio del producto antes de continuar con la compra.</p>
+        </div>
+
+      <div class="sub">
+        <h3>1.1.2. Checkout como invitado</h3>
+        <p>Una característica importante de la página de ZARA es que permite realizar compras
+        tanto como usuario registrado como en modalidad de invitado. Al usar la modalidad de
+        invitado, el sistema solicita únicamente los datos necesarios para procesar el pedido.
+        Esto reduce la fricción durante el proceso, ya que el consumidor no está obligado a
+        crear una cuenta. Además, ZARA permite guardar los datos de pago para agilizar futuras
+        compras cuando el cliente utiliza las funciones de su cuenta.</p>
+        </div>
+
+      <div class="sub">
+        <h3>1.1.3. Selección del método de entrega</h3>
+        <p>Durante el checkout, el cliente selecciona dónde desea recibir su compra. ZARA
+        Guatemala ofrece principalmente:</p>
+        <ul>
+          <li><strong>Envío a una tienda ZARA</strong>, sin costo.</li>
+          <li><strong>Envío a domicilio</strong>, sujeto al costo y condiciones indicadas durante el checkout.</li>
+        </ul>
+        <p>El sistema presenta al consumidor las alternativas disponibles, el costo y la fecha
+        estimada de entrega antes de finalizar el pedido, integrando las condiciones de entrega
+        dentro del mismo checkout.</p>
+      </div>
+
+      <div class="sub">
+        <h3>1.1.4. Métodos de pago</h3>
+        <p>ZARA Guatemala ofrece diferentes métodos de pago para sus compras en línea.
+        Actualmente se encuentran disponibles:</p>
+        <ul>
+          <li>Visa</li>
+          <li>Mastercard</li>
+          <li>American Express</li>
+          <li>Tarjeta Regalo</li>
+          <li>Tarjeta Abono</li>
+        </ul>
+        <p>La variedad de alternativas permite que el consumidor seleccione el método más
+        conveniente. Además, cuando el saldo de una Tarjeta Regalo no es suficiente para cubrir
+        la totalidad de la compra, ZARA permite combinarla con otro método de pago disponible.</p>
+      </div>
+
+      <div class="sub">
+        <h3>1.1.5. Procesamiento, confirmación y seguimiento del pedido</h3>
+        <p>Una vez que el cliente selecciona el método de pago y finaliza la compra, ZARA
+        continúa con el procesamiento del pedido. En compras con tarjeta bancaria, el cobro se
+        efectúa cuando el pedido es enviado; al utilizar una Tarjeta Regalo, el importe se
+        descuenta al finalizar la compra. Después de completar correctamente el pedido, el
+        cliente recibe un correo electrónico de confirmación con la información de su compra.</p>
+        <p>Posteriormente, ZARA permite consultar el avance de la compra mediante diferentes
+        estados:</p>
+        <div class="highlight-box">
+          Comprado &rarr; En curso &rarr; En preparación &rarr; Enviado &rarr; Recogido por transportista &rarr; Entregado al cliente
+        </div>
+        <p style="margin-top:12px;">Los usuarios registrados pueden consultar esta información desde su cuenta, mientras que
+        quienes compran como invitados realizan el seguimiento mediante los enlaces incluidos en
+        los correos relacionados con el pedido.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODULO 2: PRUEBA EN ERP -->
+  <section class="module">
+    <h2 class="module-title">1.2. Prueba en ERP (Odoo Demo)</h2>
+    <p class="module-desc">
+      Se replicó el proceso de checkout y pago dentro del entorno Demo de Odoo, utilizando el
+      proveedor de pago "Demo" para simular una transacción completa sin usar información
+      bancaria real, desde la configuración inicial hasta la confirmación del pedido.
+    </p>
+    <button class="toggle-btn" onclick="toggle('odoo')">Conoce más</button>
+
+    <div class="details" id="odoo">
+
+      <div class="sub">
+        <h3>1.2.1. Configuración del proveedor de pago</h3>
+        <p>Odoo permite configurar diferentes proveedores y métodos de pago. Para esta prueba
+        se utilizó el proveedor <strong>Demo</strong>, que permite simular una transacción sin
+        utilizar información bancaria real.</p>
+        </div>
+
+      <div class="sub">
+        <h3>1.2.2. Carrito y Checkout</h3>
+        <p>Se agregó un producto al carrito y se inició el checkout. Odoo permite visualizar el
+        resumen de la compra e ingresar los datos necesarios del cliente antes de continuar con
+        el pago.</p>
+        </div>
+
+      <div class="sub">
+        <h3>1.2.3. Procesamiento del pago</h3>
+        <p>Se utilizó el proveedor Demo para simular un pago exitoso. Esta funcionalidad
+        permite comprobar cómo Odoo procesa una transacción electrónica sin utilizar una
+        tarjeta o realizar un cargo real.</p>
+        </div>
+
+      <div class="sub">
+        <h3>1.2.4. Confirmación del pedido y facturación</h3>
+        <p>Después del pago exitoso, Odoo confirma automáticamente el pedido y registra la
+        operación dentro del ERP. Esta integración permite relacionar el proceso de compra con
+        ventas y facturación.</p>
+        </div>
+
+    </div>
+  </section>
+
+  <!-- MODULO 3: GAP ANALYSIS -->
+  <section class="module">
+    <h2 class="module-title">1.3. Análisis de Brechas (Gap Analysis)</h2>
+    <p class="module-desc">
+      A partir de las pruebas realizadas, se compararon las principales funcionalidades de
+      ZARA Guatemala con las disponibles en Odoo Demo, enfocándose en el proceso de checkout
+      y pago.
+    </p>
+    <button class="toggle-btn" onclick="toggle('gap')">Conoce más</button>
+
+    <div class="details" id="gap">
+      <table class="gap-table">
+        <thead>
+          <tr>
+            <th>Funcionalidad</th>
+            <th>ZARA Guatemala</th>
+            <th>Odoo Demo</th>
+            <th>Brecha identificada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Checkout</td>
+            <td>Proceso sencillo y orientado al consumidor, con compra como invitado.</td>
+            <td>Cuenta con un checkout funcional y configurable.</td>
+            <td>Odoo requiere mayor personalización para ofrecer una experiencia tan simplificada como ZARA.</td>
+          </tr>
+          <tr>
+            <td>Métodos de pago</td>
+            <td>Visa, Mastercard, American Express, Tarjeta Regalo y Tarjeta Abono.</td>
+            <td>Permite configurar diferentes proveedores y métodos de pago.</td>
+            <td>Odoo necesita configurar e integrar las pasarelas específicas que utilizará la empresa.</td>
+          </tr>
+          <tr>
+            <td>Procesamiento del pago</td>
+            <td>El proceso está integrado al checkout y depende del método seleccionado.</td>
+            <td>Permite procesar y simular pagos mediante proveedores integrados.</td>
+            <td>Ambos cumplen la función, pero Odoo depende de la configuración del proveedor de pago.</td>
+          </tr>
+          <tr>
+            <td>Confirmación y comprobante</td>
+            <td>Envía confirmación electrónica del pedido, pero en Guatemala no permite emitir factura de compras online.</td>
+            <td>Permite relacionar el pedido con ventas y facturación.</td>
+            <td>El sistema propio debe integrar confirmación inmediata y generación de factura o comprobante.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- MODULO 4: CONCLUSION -->
+  <section class="module">
+    <h2 class="module-title">¿Qué funciones son indispensables para nuestro sistema?</h2>
+    <p class="module-desc">
+      De acuerdo con la comparación realizada entre ambas plataformas, se identificaron los
+      requisitos mínimos que debería cumplir un sistema propio de checkout y pago.
+    </p>
+    <button class="toggle-btn" onclick="toggle('conclusion')">Conoce más</button>
+
+    <div class="details" id="conclusion">
+      <div class="sub">
+        <div class="highlight-box">
+          <strong>Requisitos indispensables identificados:</strong>
+          El sistema debería contar con un checkout rápido y sencillo, diferentes métodos de
+          pago, una pasarela segura, confirmación inmediata de la compra y generación
+          automática del comprobante o factura.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Benchmarking &middot; Checkout y Pasarelas de Pago &middot; Responsable: Natali
+  </footer>
+
+</div>
+
+<script>
+  function toggle(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
