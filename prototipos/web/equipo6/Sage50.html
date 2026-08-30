@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sage 50</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+            header, footer {
+                background: #2f4f4f;
+                color: white;
+                padding: 25px 8%;
+            }
+
+        header h1, footer p {
+            margin: 5px 0;
+        }
+
+        main {
+            width: 84%;
+            max-width: 950px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #222;
+            border-bottom: 2px solid #555;
+            padding-bottom: 6px;
+            margin-top: 35px;
+        }
+
+        p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        ul {
+            line-height: 1.7;
+        }
+
+        .datos {
+            margin-bottom: 30px;
+        }
+
+        .sub {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sage 50</h1>
+    <p>Benchmarking del Módulo Bancario</p>
+</header>
+
+<main>
+
+    <div class="datos">
+        <b>Guillermo Morales</b><br>
+        Carnet: 0901-23-3329<br>
+        Análisis de Sistemas II
+    </div>
+
+    <h2>Multi-Moneda</h2>
+
+    <p>
+        El módulo de Multi-Moneda de Sage 50 permite trabajar con diferentes
+        monedas dentro de una empresa. Esto es útil cuando se realizan pagos
+        a proveedores extranjeros, cobros internacionales o transacciones que
+        necesitan una conversión de moneda.
+    </p>
+
+    <p>
+        El sistema permite definir una moneda principal y utilizar otras
+        monedas con su respectivo tipo de cambio. De esta forma se puede
+        registrar el monto original de la operación y también su equivalente
+        en la moneda principal.
+    </p>
+
+    <p class="sub">Aspectos que podemos implementar:</p>
+
+    <ul>
+        <li>Manejo de Quetzales y Dólares.</li>
+        <li>Definir una moneda principal.</li>
+        <li>Registrar el tipo de cambio de cada operación.</li>
+        <li>Mostrar el monto original y su equivalente.</li>
+        <li>Guardar un historial de tipos de cambio.</li>
+    </ul>
+
+    <h2>Estado de Cuentas</h2>
+
+    <p>
+        El Estado de Cuentas permite consultar los movimientos de las cuentas
+        bancarias de la empresa. Se pueden revisar depósitos, pagos, cheques
+        y otros movimientos, además de consultar el saldo disponible.
+    </p>
+
+    <p>
+        Una función importante es la conciliación bancaria, ya que permite
+        comparar los movimientos registrados en Sage 50 con la información
+        proporcionada por el banco. Esto ayuda a encontrar movimientos
+        pendientes o diferencias entre los saldos.
+    </p>
+
+    <p class="sub">Aspectos que podemos implementar:</p>
+
+    <ul>
+        <li>Consultar los movimientos de una cuenta bancaria.</li>
+        <li>Mostrar ingresos, egresos y saldo disponible.</li>
+        <li>Filtrar movimientos por cuenta y fechas.</li>
+        <li>Identificar movimientos conciliados o pendientes.</li>
+        <li>Comparar el saldo del sistema con el saldo bancario.</li>
+    </ul>
+
+    <h2>Programación de Movimientos</h2>
+
+    <p>
+        En una empresa existen operaciones que se realizan constantemente,
+        como pagos de alquiler, servicios, cuotas o compras periódicas.
+        Registrar la misma información cada vez puede generar trabajo
+        innecesario y aumentar la posibilidad de cometer errores.
+    </p>
+
+    <p>
+        Sage 50 permite manejar transacciones recurrentes, guardando los datos
+        de una operación para utilizarlos nuevamente. Antes de realizar el
+        movimiento, el usuario puede revisar o modificar la información.
+    </p>
+
+    <p class="sub">Funciones que podrían ser útiles:</p>
+
+    <ul>
+        <li>Crear movimientos semanales, mensuales o anuales.</li>
+        <li>Registrar una fecha de inicio.</li>
+        <li>Definir la próxima fecha de ejecución.</li>
+        <li>Consultar movimientos pendientes.</li>
+        <li>Modificar información antes de confirmar.</li>
+        <li>Agregar recordatorios de pagos y cobros.</li>
+        <li>Mostrar si el movimiento está activo, finalizado o cancelado.</li>
+    </ul>
+
+</main>
+
+<footer>
+    <p><b>Guillermo Morales - 0901-23-3329</b></p>
+    <p>Análisis de Sistemas II | Sage 50</p>
+</footer>
+
+</body>
+</html>

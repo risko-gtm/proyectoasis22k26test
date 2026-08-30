@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ERP Bancos</title>
+        <link rel="stylesheet" href="css/estilos.css" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <img id="logo" src="imagenes/logo.png" />
+                    Área de Bancos (Aspel BANCOS)
+                <span id="tagline">Un blog de calidad&nbsp;&nbsp;&nbsp;</span>
+                <button onclick="window.location.href='blog aspel.html'">Aspel BANCOS Parte 2</button>
+                <button onclick="window.location.href='Sage 50 Gestión Financiera y Bancaria.html'">Sage 50 Parte 1</button>
+                <button onclick="window.location.href='Sage50.html'">Sage 50 Parte 2</button>
+                <button onclick="window.location.href='blog_quickbooks.html'">QuickBooks Parte 1</button>
+                <button onclick="window.location.href='Benchmarking.html'">QuickBooks Parte 2</button>
+            </div>
+            <div id="post">
+
+                <h1>Control de Pagos</h1>
+                <p>Aspel Bancos tienen un encabezado especifico para conciliar lo que serían los movimientos bancos como transferencias, conciliaciones, consultar agentas, etc.;
+                pero en este punto nos enfocaremos en lo que vendrían siendo los Movimientos.</p>
+                <p>Como podemos ver en la imagen, los movimientos serían los principales procesos que estaría manejando el Sistema de Aspel Bancos; podemos describir los siguientes
+                movimientos: 1. Efectivo, 2. Cheque y 3. Transferencia. </p>
+                <p>En esa misma ventana podremos acceder a una nueva mediante el botón de 1. agregar; específicamente para registrar 2. movimientos con efectivo o de transferencia.
+                De cualquier modo, el acceso a esa ventana de manera directa está en los botones debajo de 1. Agregar. Como podemos ver, mediante un Id podremos seleccionar la 3. 
+                Forma de pago (se ajusta automáticamente dependiendo del tipo de movimiento 1-efectivo o 3-trasnferencia), adicional, podremos hacer pagos hacia clientes o proveedores;
+                estos al contar con algunos datos de ingresos distintos, se hace el siguiente movimiento:</p>
+                <p>De manera inteligente, se ocultan para el usuario algunas opciones si se selecciona un movimiento de pago a un proveedore y se relevan en el movimiento de pago del 
+                cliente. Pudiendo seleccionar cualquier movimiento con la misma interfaz sin afectar el funcionamiento del sistema (ahorrando una ventana más a la cual programar). 
+                El ingreso de datos se basa en el relleno de casillas que soliciten la información; dependiendo de lo solicitado, se requerirá del Id del cliente o Proveedor, lo 
+                que hará un llamado para obtener el nombre del involucrado (igual que el método de pago). Además, se llena una parte de la tabla con la referencia SAE 
+                (valor referente al sistema de administración) para obtener el valor a pagar. Una vez terminado se selecciona Guardar o F3 para poder almacenar el pago con éxito en la base de datos.</p>
+                <h3>Aspectos a tomar en cuenta:</h3>
+                <p>El sistema funciona como cualquier otro sistema que hayamos programado; consistiendo de insertar datos y almacenarlo en la base de datos; pero a diferencia de 
+                lo que sabemos realizar, Aspel Bancos se caracteriza por hacer uso de buenas prácticas como las siguientes:</p>
+                <p>Buena organización de donde están los botones, accesibles en todo momento y pudiendo cambiar el movimiento aún estando en otra ventana.</p>
+                <p>El llamado de datos para confirmar el registro que se esté llamando, tanto por medio de un Id, como el relleno automático de la tabla final. </p>
+                <p>Separación de base de datos (Mención en la integración).</p>
+                <p>Uso de diversos dispositivos al sistema; esto lo hace más accesible a todo tipo de público y permite obtener una mejor eficiencia dentro del trabajo.</p>
+
+                <h1>Integración Bancaria</h1>
+                <p>Aspel Bancos es un sector que se ocupa de todos los procesos bancarios, de modo que al finalizar algún proceso todo registro queda almacenado en una misma base de 
+                datos. Aspel cuenta con integraciones a otros sectores como el de contabilidad (Aspel COI), y como vimos en el proceso de control de pagos, los montos se calculan 
+                previamente en el sector de administración a través de Aspel SAE.</p>
+                <p>Al referir un registro completo, se pueden seleccionar los valores necesarios desde Aspel SAE (cálculo contable de pago) hasta llegar a Aspel Bancos (pago directo) 
+                para culminar el proceso de pagos. Lo interesante es la forma en que esto se relaciona, ya que cada sistema de Aspel maneja su propia base de datos; Aspel Bancos 
+                trabaja en la suya y Aspel SAE en la suya. La conexión se basa en un método antiguo pero eficaz para su época.</p>
+                <h3>Desnormalización por Integración</h3>
+                <p>Se trata de un método de conexión para dos bases de datos distintas: de manera intencional se duplican datos en ambos lados y se almacenan en su propia base de datos. 
+                Así, ninguna base de datos depende de la otra mediante disparadores o consultas JSON; ya cuenta con sus propios datos y puede utilizarlos de forma independiente.</p>
+                <p>En definitiva, este método es mucho más simple que los triggers (considerados la forma más elegante) o los JSON (los más modernos actualmente), pero su efectividad 
+                en su momento fue lo que permitió a Aspel utilizar más de una base de datos para mantener mejor orden en cada uno de sus sistemas.</p>
+                <h3>Aspectos a tomar en cuenta:</h3>
+                <p>	Este método resulta ideal relacionándolo con lo que menciona el ingeniero: "lo antiguo resulta ser más efectivo", lo cual tiene sentido al comparar formas de conexión.</p>
+                <p>	Desafortunadamente, el acierto en la conexión de bases de datos termina afectando al sistema entero, dejándolo más simple, con mayor almacenamiento y más rígido, a 
+                diferencia de las herramientas modernas actuales.</p>
+                <p>	Para este proyecto no está contemplado el uso de más de una base de datos, por lo que este método no nos conviene.</p>
+                <p>	Lo más efectivo en nuestro caso, al usar una misma base de datos para todo el sistema, es la conexión directa por medio de llaves foráneas en las tablas que requieren 
+                esos datos; por ejemplo, los permisos asignados a un rol o los montos de un proceso que luego se aplican en el área de bancos.</p>
+                <p>	Aunque no se aplicaría este método, es de reconocer los avances que se le han dado a las bases de datos para lograr conexiones más efectivas, así como el almacenamiento
+                 en la nube para que más de una computadora se conecte al sistema.</p>
+
+                <h1>Estado de Cuentas</h1>
+                <p>La visualización de información es esencial para monitorear el rendimiento del sistema y adicionalmente indica si la empresa está cumpliendo con sus objetivos establecidos
+                     o si tendría que optimizar diversos aspectos por medio de una toma de decisiones. El sistema Aspel Bancos tiene una forma tradicional de visualizar la información, 
+                     principalmente por medio de reportes; como vimos antes, se pueden visualizar registros en una vista previa, pero además contamos con una sección específica para los reportes.</p>
+                <p>Los reportes en Aspel Bancos tienen su propio encabezado, pudiendo generar reportes diarios, resúmenes de cuentas, pronósticos de ingresos, flujos de efectivo, etc.; 
+                    siendo el más relevante el Reporte de Estados de Cuenta. Se puede rellenar la información solicitada para acceder a todos los movimientos que realizó una cuenta, o solo 
+                    los registrados en un lapso de fechas, además de poder seleccionar el estado de los movimientos e incluso incluir la información del usuario que realizó la acción.</p>
+                <p>Como podemos ver, el reporte generado no se trata de una tabla; se trata de un documento formal el cual muestra los movimientos que realizó la cuenta descrita por el Id. 
+                Teniendo un formato formal que describe con exactitud los cheques generados para luego enseñar el saldo total que realizo el movimiento. Tenemos un apartado para poder 
+                1. Desplazarlos por si se trata de más de una página, 2. Imprimir los reportes, 3. Filtrar los datos para poder encontrar registros y 4. Guardarlos como un archivo para tenerlo en la 
+                computadora.Para todos los reportes que se deseen solicitar es el mismo procedimiento; selección del reporte según la acción, especificar por medio del Id la cuenta a la cual 
+                solicitar y luego hacer lo que queramos con el reporte. </p>
+                <h3>Aspectos a tomar en cuenta:</h3>
+                <p>	Continuando con la idea de que Aspel es un sistema un poco antiguo, no podemos dudar que la eficacia de estos reportes demuestra lo bien que han envejecido y que pueden 
+                seguir siendo útiles hoy en día, sobre todo al permitir alta libertad al usuario para hacer lo que desee con el reporte.</p>
+                <p>	Se puede aplicar en nuestro sector bajo especificaciones que permitan la mayor precisión al solicitar la información.</p>
+                <p>	El poder generar un documento que no sea idéntico a la base de datos es un paso profesional que destaca en el sistema, pudiendo incluso estandarizar los documentos a 
+                nuestro gusto para caracterizar a la empresa que use el sistema.</p>
+                <p>	De igual manera, la visualización previa de información por medio de tablas en los CRUDs es eficaz para verificar la información ingresada.</p>
+                <p>	Aunque el sistema Aspel Bancos ni ningún otro de sus sectores lo incluye, el uso de un dashboard en el inicio es de vital importancia, ya que mostrar gráficas y KPI 
+                transforma datos en información para la toma de decisiones rápidas e incluso para la prevención de situaciones que lo ameriten.</p>
+
+            </div>
+            <div id="comentarios">
+                <h1>Comentarios acerca del Benchmarking</h1>
+                <p>Creado por Oscar Morales 9959-23-3070</p>
+                <p>Saludos</p>
+            </div>
+
+	    <div id="footer">
+		      El equipo de ANALISIS DE SISTEMAS II es el encargado de desarrollo del proyecto
+	    </div>
+        </div>
+    </body>
+</html>
